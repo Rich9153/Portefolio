@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.footer {
+  background-color: #1a1a2e;
+  color: #b0b0b0;
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid rgba(0, 217, 255, 0.2);
+  margin-top: auto;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* Styles globaux pour les titres de page */
+.page-title {
+  font-size: 2.5rem;
+  color: #e0e0e0;
+  margin-bottom: 1rem;
+}
+
+.title-underline {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #00d9ff, #7000ff);
+  margin: 0 auto;
+}
+
+/* Animations globales */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 1.5rem;
+    font-size: 0.9rem;
+  }
+}
