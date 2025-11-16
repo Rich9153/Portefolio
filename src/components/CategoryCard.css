@@ -1,0 +1,160 @@
+.category-card {
+  background-color: #1a1a2e;
+  border-radius: 16px;
+  padding: 2rem;
+  border: 2px solid rgba(0, 217, 255, 0.3);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  border-color: #00d9ff;
+  box-shadow: 0 10px 40px rgba(0, 217, 255, 0.3);
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(0, 217, 255, 0.2);
+}
+
+.category-title {
+  color: #00d9ff;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.category-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.category-badge.academic {
+  background-color: rgba(76, 175, 80, 0.2);
+  color: #81c784;
+  border: 1px solid rgba(76, 175, 80, 0.4);
+}
+
+.category-badge.personal {
+  background-color: rgba(33, 150, 243, 0.2);
+  color: #64b5f6;
+  border: 1px solid rgba(33, 150, 243, 0.4);
+}
+
+.category-badge.company {
+  background-color: rgba(255, 152, 0, 0.2);
+  color: #ffb74d;
+  border: 1px solid rgba(255, 152, 0, 0.4);
+}
+
+.category-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-list-title {
+  color: #e0e0e0;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.projects-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  flex: 1;
+}
+
+.project-item {
+  color: #b0b0b0;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.project-item:hover {
+  color: #00d9ff;
+  padding-left: 0.5rem;
+}
+
+.project-item:last-child {
+  border-bottom: none;
+}
+
+.project-bullet {
+  color: #00d9ff;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.project-item:hover .project-bullet {
+  transform: translateX(3px);
+}
+
+.project-name {
+  font-size: 1.05rem;
+}
+
+.visualize-btn {
+  background: linear-gradient(135deg, #00d9ff 0%, #0099cc 100%);
+  color: #0f0f1e;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.visualize-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 217, 255, 0.5);
+  background: linear-gradient(135deg, #00b8d4 0%, #007a99 100%);
+}
+
+.visualize-btn:active {
+  transform: translateY(-1px);
+}
+
+.btn-icon {
+  font-size: 1.3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .category-card {
+    padding: 1.5rem;
+  }
+
+  .category-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .category-title {
+    font-size: 1.5rem;
+  }
+
+  .visualize-btn {
+    font-size: 1rem;
+    padding: 0.875rem 1.5rem;
+  }
+}

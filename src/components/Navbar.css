@@ -28,6 +28,12 @@
   color: #00b8d4;
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 .nav-menu {
   display: flex;
   list-style: none;
@@ -68,8 +74,12 @@
 }
 
 @media screen and (max-width: 768px) {
-  .nav-menu {
+  .nav-right {
     gap: 1rem;
+  }
+
+  .nav-menu {
+    gap: 0.8rem;
   }
 
   .nav-container {
@@ -77,6 +87,10 @@
   }
 
   .nav-link {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .nav-logo {
+    font-size: 1.2rem;
   }
 }

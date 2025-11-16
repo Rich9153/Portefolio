@@ -1,13 +1,17 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
+import { useLanguage } from '../contexts/LanguageContext';
 import './Contact.css';
 
 function Contact() {
+  const { t, language } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -16,21 +20,59 @@ function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Ici vous pourrez ajouter la logique d'envoi du formulaire
-    console.log('Form submitted:', formData);
-    alert('Message envoyé ! (fonctionnalité à implémenter)');
+    setIsLoading(true);
+
+    try {
+      // Configuration EmailJS
+      const serviceId = 'service_dixcc8f';
+      const templateId = 'template_9ba67fy';
+      const publicKey = 'yrUR__solN4WA2nY7';
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'ulrichbab09@gmail.com'
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      const successMessage = language === 'fr'
+        ? 'Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.'
+        : 'Message sent successfully! I will respond to you as soon as possible.';
+
+      alert(successMessage);
+
+      // Réinitialiser le formulaire
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi:', error);
+      const errorMessage = language === 'fr'
+        ? 'Erreur lors de l\'envoi du message. Veuillez réessayer ou me contacter directement par email.'
+        : 'Error sending message. Please try again or contact me directly by email.';
+
+      alert(errorMessage);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <div className="contact">
       <div className="contact-container">
         <div className="contact-header">
-          <h1 className="page-title">Contactez-moi</h1>
+          <h1 className="page-title">{t.contact.title}</h1>
           <div className="title-underline"></div>
           <p className="contact-subtitle">
-            N'hésitez pas à me contacter pour toute opportunité ou question
+            {t.contact.subtitle}
           </p>
         </div>
 
@@ -38,24 +80,24 @@ function Contact() {
           <div className="contact-info">
             <div className="info-card">
               <div className="info-icon">📧</div>
-              <h3>Email</h3>
-              <p>votre.email@example.com</p>
+              <h3>{t.contact.info.email}</h3>
+              <p>ulrichbab09@gmail.com</p>
             </div>
 
             <div className="info-card">
               <div className="info-icon">📱</div>
-              <h3>Téléphone</h3>
-              <p>+33 X XX XX XX XX</p>
+              <h3>{t.contact.info.phone}</h3>
+              <p>+33 6 35 67 02 68</p>
             </div>
 
             <div className="info-card">
               <div className="info-icon">📍</div>
-              <h3>Localisation</h3>
-              <p>Ville, Pays</p>
+              <h3>{t.contact.info.location}</h3>
+              <p>275 Route De Seysses, Toulouse 31100</p>
             </div>
 
             <div className="social-links">
-              <h3>Réseaux sociaux</h3>
+              <h3>{t.contact.info.socials}</h3>
               <div className="social-icons">
                 <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer">
                   <span>GitHub</span>
@@ -72,7 +114,7 @@ function Contact() {
 
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
-              <label htmlFor="name">Nom</label>
+              <label htmlFor="name">{t.contact.form.name}</label>
               <input
                 type="text"
                 id="name"
@@ -80,12 +122,12 @@ function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                placeholder="Votre nom"
+                placeholder={t.contact.form.namePlaceholder}
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">{t.contact.form.email}</label>
               <input
                 type="email"
                 id="email"
@@ -93,12 +135,12 @@ function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                placeholder="votre.email@example.com"
+                placeholder={t.contact.form.emailPlaceholder}
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="subject">Sujet</label>
+              <label htmlFor="subject">{t.contact.form.subject}</label>
               <input
                 type="text"
                 id="subject"
@@ -106,12 +148,12 @@ function Contact() {
                 value={formData.subject}
                 onChange={handleChange}
                 required
-                placeholder="Sujet de votre message"
+                placeholder={t.contact.form.subjectPlaceholder}
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="message">Message</label>
+              <label htmlFor="message">{t.contact.form.message}</label>
               <textarea
                 id="message"
                 name="message"
@@ -119,12 +161,12 @@ function Contact() {
                 onChange={handleChange}
                 required
                 rows="6"
-                placeholder="Votre message..."
+                placeholder={t.contact.form.messagePlaceholder}
               ></textarea>
             </div>
 
-            <button type="submit" className="submit-btn">
-              Envoyer le message
+            <button type="submit" className="submit-btn" disabled={isLoading}>
+              {isLoading ? (language === 'fr' ? 'Envoi en cours...' : 'Sending...') : t.contact.form.send}
             </button>
           </form>
         </div>

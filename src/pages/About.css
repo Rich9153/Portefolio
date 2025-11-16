@@ -38,17 +38,19 @@
   top: 100px;
 }
 
-.profile-image-placeholder {
+.profile-image {
   width: 100%;
   aspect-ratio: 1;
-  background-color: #1a1a2e;
+  object-fit: cover;
   border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #666;
-  font-size: 1.1rem;
-  border: 2px dashed #333;
+  border: 3px solid #00d9ff;
+  box-shadow: 0 8px 30px rgba(0, 217, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 217, 255, 0.5);
 }
 
 .about-text {

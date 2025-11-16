@@ -1,44 +1,53 @@
+import { useLanguage } from '../contexts/LanguageContext';
 import './Education.css';
 
 function Education() {
-  // Exemple de données - à personnaliser
+  const { t } = useLanguage();
+
   const educationData = [
     {
       id: 1,
-      degree: "Master en Informatique",
-      school: "Université / École",
-      location: "Ville, Pays",
-      period: "2022 - 2024",
-      description: "Spécialisation en développement logiciel et intelligence artificielle.",
+      degree: "Master ICE-LD (Ingénierie Continue des Ecosystèmes Logiciels et Données)",
+      school: "Université Toulouse Jean Jaurès",
+      location: "Toulouse, France",
+      period: "2025 - Présent",
+      description: "Master en cours axé sur l'ingénierie logicielle et la gestion des données.",
       achievements: [
-        "Mention Très Bien",
-        "Projet de fin d'études sur...",
-        "Stage en entreprise"
+        "En cours"
       ]
     },
     {
       id: 2,
-      degree: "Licence en Informatique",
-      school: "Université / École",
-      location: "Ville, Pays",
-      period: "2019 - 2022",
-      description: "Formation générale en informatique et programmation.",
+      degree: "Licence MIASH (Mathématiques et Informatique Appliquées aux Sciences Humaines et Sociales)",
+      school: "Université Toulouse Jean Jaurès",
+      location: "Toulouse, France",
+      period: "2022 - 2025",
+      description: "Spécialisation en développement logiciel.",
       achievements: [
-        "Major de promotion",
-        "Participation à des hackathons",
-        "Projet tuteuré"
+        "Projet de fin d'études sur l'ATS (Applicant Tracking System)",
+        "Stage chez Solio Group"
       ]
     },
     {
       id: 3,
-      degree: "Baccalauréat Scientifique",
-      school: "Lycée",
-      location: "Ville, Pays",
-      period: "2018 - 2019",
-      description: "Spécialité Mathématiques et Sciences de l'Ingénieur.",
+      degree: "Licence en Informatique de Gestion",
+      school: "Université Lumière de Bujumbura",
+      location: "Bujumbura, Burundi",
+      period: "2020 - 2022",
+      description: "Formation générale en informatique et gestion.",
       achievements: [
-        "Mention Bien",
-        "Option Informatique et Sciences du Numérique"
+        "Projet tuteuré"
+      ]
+    },
+    {
+      id: 4,
+      degree: "Baccalauréat Scientifique",
+      school: "Lycée du Lac Tanganyika",
+      location: "Bujumbura, Burundi",
+      period: "2018 - 2019",
+      description: "Section Scientifique Biologie Chimie et Science de la Terre.",
+      achievements: [
+        "Mention Bien"
       ]
     }
   ];
@@ -47,7 +56,7 @@ function Education() {
     <div className="education">
       <div className="education-container">
         <div className="education-header">
-          <h1 className="page-title">Parcours Académique</h1>
+          <h1 className="page-title">{t.education.title}</h1>
           <div className="title-underline"></div>
         </div>
 
@@ -68,7 +77,7 @@ function Education() {
                 <p className="degree-description">{item.description}</p>
                 {item.achievements && item.achievements.length > 0 && (
                   <div className="achievements">
-                    <h4>Points forts :</h4>
+                    <h4>{t.education.achievements}</h4>
                     <ul>
                       {item.achievements.map((achievement, idx) => (
                         <li key={idx}>{achievement}</li>
@@ -82,7 +91,7 @@ function Education() {
         </div>
 
         <div className="certifications-section">
-          <h2 className="section-title">Certifications & Formations</h2>
+          <h2 className="section-title">{t.education.certifications}</h2>
           <div className="certifications-grid">
             <div className="certification-card">
               <h3>Certification 1</h3>

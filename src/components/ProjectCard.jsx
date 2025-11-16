@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 import './ProjectCard.css';
 
 function ProjectCard({ project }) {
+  const { t } = useLanguage();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const nextImage = () => {
@@ -48,7 +50,7 @@ function ProjectCard({ project }) {
           </>
         ) : (
           <div className="project-image-placeholder">
-            <span>Aucune image</span>
+            <span>{t.projects.noImage}</span>
           </div>
         )}
       </div>
@@ -56,9 +58,7 @@ function ProjectCard({ project }) {
         <div className="project-header">
           <h3 className="project-title">{project.title}</h3>
           <span className={`project-type ${project.type}`}>
-            {project.type === 'academic' ? 'Académique' :
-             project.type === 'personal' ? 'Personnel' :
-             'Entreprise'}
+            {t.projects.types[project.type]}
           </span>
         </div>
         <p className="project-description">{project.description}</p>
@@ -81,7 +81,7 @@ function ProjectCard({ project }) {
             rel="noopener noreferrer"
             className="project-link"
           >
-            Voir le projet →
+            {t.projects.viewProject} →
           </a>
         )}
       </div>
