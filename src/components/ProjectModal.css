@@ -77,13 +77,10 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 217, 255, 0.2);
-  border: 2px solid #00d9ff;
+  background-color: transparent;
+  border: none;
   color: #00d9ff;
   font-size: 2.5rem;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 5;
@@ -93,8 +90,8 @@
 }
 
 .project-nav:hover {
-  background-color: #00d9ff;
-  color: #0f0f1e;
+  color: #00b8d4;
+  transform: translateY(-50%) scale(1.2);
 }
 
 .project-nav.prev {
@@ -141,20 +138,17 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: transparent;
   border: none;
   color: #00d9ff;
   font-size: 2rem;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .image-nav-btn:hover {
-  background-color: #00d9ff;
-  color: #0f0f1e;
+  color: #00b8d4;
+  transform: translateY(-50%) scale(1.2);
 }
 
 .image-nav-btn.prev {

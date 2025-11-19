@@ -36,8 +36,22 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: var(--bg-primary);
+  background: linear-gradient(-45deg, #000000, #000000, #001a33, #002b3d, #000000, #1a0033, #2d1b4e, #000000, #003d4d, #0f0f1e, #000000);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
   overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 #root {

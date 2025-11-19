@@ -13,28 +13,36 @@ function Projects() {
   const projectsData = {
     academic: [
       {
-        title: "Projet Académique 1",
-        description: "Description détaillée du projet académique réalisé pendant mes études. Ce projet visait à développer une application complète en utilisant les dernières technologies web.",
-        technologies: ["React", "Node.js", "MongoDB"],
+        title: "Game of Trivia 'Music'",
+        description: "Jeu développé en utilisant les technologies HTML5, CSS pour développer le front-end et JavaScript pour faire la liaison avec le back-end. Il s'agit d'un jeu reprenant le jeu télévisé 'Question pour un champion', où un utilisateur a une suite de questions. À chaque question il y a plusieurs choix possibles avec une seule bonne réponse. Ce jeu m'a permis de bien appréhender les concepts du développement web.",
+        technologies: ["HTML5", "CSS", "JavaScript"],
         images: [
-          // Ajoutez vos chemins d'images ici
-          // "/images/academic1-1.jpg",
-          // "/images/academic1-2.jpg"
+          "/images/trivia-1.png",
+          "/images/trivia-2.png",
+          "/images/trivia-3.png"
         ],
         link: ""
       },
       {
-        title: "Projet Académique 2",
-        description: "Deuxième projet académique axé sur le développement d'une application mobile avec une architecture moderne.",
-        technologies: ["React Native", "Firebase", "Redux"],
-        images: [],
+        title: "Organisation de la fête à l'université",
+        description: "Projet développé avec l'outil de création d'interface interactif Tkinter. Le projet consistait à créer une interface pour un organisateur d'événement avec la capacité de voir les produits de consommation apportés à la fête par les participants eux-mêmes, et aussi de renvoyer des notifications aux participants vis-à-vis de leur apport pour la fête afin que tout le monde puisse être satisfait par la consommation et par le service.",
+        technologies: ["Tkinter"],
+        images: [
+          "/images/fete-1.png",
+          "/images/fete-2.png",
+          "/images/fete-3.png"
+        ],
         link: ""
       },
       {
-        title: "Projet Académique 3",
-        description: "Projet de groupe réalisé dans le cadre du cursus universitaire, impliquant la création d'un système de gestion.",
-        technologies: ["Vue.js", "Express", "PostgreSQL"],
-        images: [],
+        title: "Campus Explorer",
+        description: "Connaissez-vous réellement votre université ? Il s'agit d'un jeu en ligne développé par un groupe de 5 étudiants, visant à faire visiter les étudiants de l'université en profondeur en s'amusant à faire une chasse aux endroits où ont été prises des images dans l'entièreté de l'université avec des indices pour leur permettre de trouver non pas facilement mais intuitivement l'endroit où a été prise l'image, avec la possibilité de proposer de nouveaux endroits à découvrir au sein de l'université, tout cela en étant connecté avec les identifiants de connexion à la plateforme de l'université.",
+        technologies: ["HTML5", "CSS", "JavaScript", "PHP", "MariaDB", "Mailer.js", "Bootstrap", "Win-SCP"],
+        images: [
+          "/images/campus-1.png",
+          "/images/campus-2.png",
+          "/images/campus-3.png"
+        ],
         link: ""
       }
     ],
