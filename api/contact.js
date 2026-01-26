@@ -82,7 +82,7 @@ function createRecipientEmail(name, email, subject, message, language) {
 
 // Template HTML pour l'email de confirmation envoyé à l'expéditeur
 function createConfirmationEmail(name, subject, message, language) {
-  const recipientName = "Ulrich Babelinza";
+  const recipientName = "Ulrich Babbel";
 
   let title, greeting, thankYou, summary, subjectLabel, messageLabel, closing, footerText;
 
@@ -236,11 +236,11 @@ export default async function handler(req, res) {
 
     // 2. Envoyer l'email de confirmation à l'expéditeur
     const confirmSubject = language === 'fr'
-      ? 'Confirmation de votre message - Portfolio Ulrich Babelinza'
-      : 'Message confirmation - Portfolio Ulrich Babelinza';
+      ? 'Confirmation de votre message - Portfolio Ulrich Babbel'
+      : 'Message confirmation - Portfolio Ulrich Babbel';
 
     await transporter.sendMail({
-      from: `"Ulrich Babelinza" <${process.env.EMAIL_USER}>`,
+      from: `"Ulrich Babbel" <${process.env.EMAIL_USER}>`,
       to: email,
       subject: confirmSubject,
       html: createConfirmationEmail(name, subject, message, language),
