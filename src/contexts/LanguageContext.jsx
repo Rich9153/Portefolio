@@ -54,7 +54,7 @@ export const LanguageProvider = ({ children }) => {
         whoAmIText: 'Originaire du Burundi mais né au Bénin, arrivé en France en 2022, je suis un étudiant à l\'Université Mirail Jean-Jaurès en Master ICE-LD (Master en Ingénieurie Continue des Ecosystèmes Logiciels et Données), je suis passionné par le développement logiciel, web, etc...',
         skills: 'Mes compétences',
         interests: 'Mes intérêts',
-        interestsText: 'J\'aime tout ce qui touche à la musique : techno, afro-beat, l\'art (le dessin). Comme sport j\'aime faire de la natation, jouer au Rugby, et j\'ai un intérêt particulier pour tout ce qui touche à la technologie.',
+        interestsText: 'J\'aime tout ce qui touche à la musique : techno, afro-beat, l\'art (le dessin). Comme sport j\'aime faire de la natation, jouer au Rugby, et j\'ai un intérêt particulier pour tout ce qui est en rapport avec l\'évolution de la technologie.',
         skillCategories: {
           languages: 'Langages de programmation',
           frontend: 'Frontend',
@@ -153,7 +153,7 @@ export const LanguageProvider = ({ children }) => {
         whoAmIText: 'Originally from Burundi but born in Benin, arrived in France in 2022, I am a student at Mirail Jean-Jaurès University in Master ICE-LD (Master in Continuous Engineering of Software and Data Ecosystems), I am passionate about software development, web, etc...',
         skills: 'My Skills',
         interests: 'My Interests',
-        interestsText: 'I love everything related to music: techno, afro-beat, art (drawing). As for sports, I enjoy swimming, playing Rugby, and I have a particular interest in everything related to technology.',
+        interestsText: 'I love everything related to music: techno, afro-beat, art (drawing). As for sports, I enjoy swimming, playing Rugby, and I have a particular interest in everything related to the evolution of technology.',
         skillCategories: {
           languages: 'Programming Languages',
           frontend: 'Frontend',

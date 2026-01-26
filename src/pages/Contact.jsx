@@ -1,10 +1,19 @@
 import { useState } from 'react';
-import emailjs from '@emailjs/browser';
+// import emailjs from '@emailjs/browser'; // Ancien système commenté
 import { useLanguage } from '../contexts/LanguageContext';
+import { useScrollAnimationMultiple } from '../hooks/useScrollAnimation';
+import CardMatrixBackground from '../components/CardMatrixBackground';
 import './Contact.css';
+
+// URL de l'API Vercel Serverless
+const API_URL = '/api/contact';
 
 function Contact() {
   const { t, language } = useLanguage();
+
+  // Animation au scroll
+  useScrollAnimationMultiple('.scroll-animate');
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,6 +21,7 @@ function Contact() {
     message: ''
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [notification, setNotification] = useState({ show: false, type: '', message: '' });
 
   const handleChange = (e) => {
     setFormData({
@@ -20,7 +30,58 @@ function Contact() {
     });
   };
 
+  const showNotification = (type, message) => {
+    setNotification({ show: true, type, message });
+    setTimeout(() => {
+      setNotification({ show: false, type: '', message: '' });
+    }, 5000);
+  };
+
   const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          language: language
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        showNotification('success', data.message);
+
+        // Réinitialiser le formulaire
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        showNotification('error', data.message);
+      }
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi:', error);
+      const errorMessage = language === 'fr'
+        ? 'Erreur lors de l\'envoi du message. Veuillez réessayer ou me contacter directement par email.'
+        : 'Error sending message. Please try again or contact me directly by email.';
+
+      showNotification('error', errorMessage);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  /* ============== ANCIEN CODE EMAILJS COMMENTÉ ==============
+  const handleSubmitOld = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
@@ -28,7 +89,7 @@ function Contact() {
       // Configuration EmailJS
       const serviceId = 'service_dixcc8f';
       const templateId = 'template_9ba67fy';
-      const publicKey = 'yrUR__solN4WA2nY7';
+      const publicKey = 'YWBBY0I0goBlgaZt8';
 
       const templateParams = {
         from_name: formData.name,
@@ -64,11 +125,28 @@ function Contact() {
       setIsLoading(false);
     }
   };
+  ============== FIN ANCIEN CODE EMAILJS COMMENTÉ ============== */
 
   return (
     <div className="contact">
+      {/* Notification */}
+      {notification.show && (
+        <div className={`notification ${notification.type}`}>
+          <span className="notification-icon">
+            {notification.type === 'success' ? '✓' : '✕'}
+          </span>
+          <span className="notification-message">{notification.message}</span>
+          <button
+            className="notification-close"
+            onClick={() => setNotification({ show: false, type: '', message: '' })}
+          >
+            ×
+          </button>
+        </div>
+      )}
+
       <div className="contact-container">
-        <div className="contact-header">
+        <div className="contact-header scroll-animate">
           <h1 className="page-title">{t.contact.title}</h1>
           <div className="title-underline"></div>
           <p className="contact-subtitle">
@@ -78,28 +156,36 @@ function Contact() {
 
         <div className="contact-content">
           <div className="contact-info">
-            <div className="info-card">
+            <div className="info-card scroll-animate scroll-delay-1">
+              <CardMatrixBackground />
               <div className="info-icon">📧</div>
               <h3>{t.contact.info.email}</h3>
-              <p>ulrichbab09@gmail.com</p>
+              <p>
+                <a href="mailto:ulrichbab09@gmail.com" className="email-link">
+                  ulrichbab09@gmail.com
+                </a>
+              </p>
             </div>
 
-            <div className="info-card">
+            <div className="info-card scroll-animate scroll-delay-2">
+              <CardMatrixBackground />
               <div className="info-icon">📱</div>
               <h3>{t.contact.info.phone}</h3>
               <p>+33 6 35 67 02 68</p>
             </div>
 
-            <div className="info-card">
+            <div className="info-card scroll-animate scroll-delay-3">
+              <CardMatrixBackground />
               <div className="info-icon">📍</div>
               <h3>{t.contact.info.location}</h3>
               <p>275 Route De Seysses, Toulouse 31100</p>
             </div>
 
-            <div className="social-links">
+            <div className="social-links scroll-animate scroll-delay-4">
+              <CardMatrixBackground />
               <h3>{t.contact.info.socials}</h3>
               <div className="social-icons">
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/Rich9153" className="social-icon" target="_blank" rel="noopener noreferrer">
                   <span>GitHub</span>
                 </a>
                 <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer">
@@ -112,7 +198,8 @@ function Contact() {
             </div>
           </div>
 
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form className="contact-form scroll-animate scroll-delay-2" onSubmit={handleSubmit}>
+            <CardMatrixBackground />
             <div className="form-group">
               <label htmlFor="name">{t.contact.form.name}</label>
               <input

@@ -8,17 +8,21 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
 
 .main-content {
   flex: 1;
   overflow: hidden;
   position: relative;
+  z-index: 1;
 }
 
 .footer {
-  background-color: #1a1a2e;
-  color: #b0b0b0;
+  background-color: rgba(26, 26, 46, 0.3);
+  backdrop-filter: blur(10px);
+  color: #e0e0e0;
   text-align: center;
   padding: 2rem;
   border-top: 1px solid rgba(0, 217, 255, 0.2);

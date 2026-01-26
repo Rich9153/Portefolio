@@ -1,4 +1,5 @@
 import { useLanguage } from '../contexts/LanguageContext';
+import CardMatrixBackground from './CardMatrixBackground';
 import './CategoryCard.css';
 
 function CategoryCard({ category, projects, onVisualize }) {
@@ -6,6 +7,7 @@ function CategoryCard({ category, projects, onVisualize }) {
 
   return (
     <div className="category-card">
+      <CardMatrixBackground />
       <div className="category-header">
         <h2 className="category-title">{t.projects.types[category]}</h2>
         <span className={`category-badge ${category}`}>

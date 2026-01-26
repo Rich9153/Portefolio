@@ -1,8 +1,13 @@
 import { useLanguage } from '../contexts/LanguageContext';
+import { useScrollAnimationMultiple } from '../hooks/useScrollAnimation';
+import CardMatrixBackground from '../components/CardMatrixBackground';
 import './Education.css';
 
 function Education() {
   const { t } = useLanguage();
+
+  // Animation au scroll
+  useScrollAnimationMultiple('.scroll-animate');
 
   const educationData = [
     {
@@ -55,14 +60,14 @@ function Education() {
   return (
     <div className="education">
       <div className="education-container">
-        <div className="education-header">
+        <div className="education-header scroll-animate">
           <h1 className="page-title">{t.education.title}</h1>
           <div className="title-underline"></div>
         </div>
 
         <div className="timeline">
           {educationData.map((item, index) => (
-            <div key={item.id} className="timeline-item" data-index={index}>
+            <div key={item.id} className={`timeline-item scroll-animate scroll-delay-${index + 1}`} data-index={index}>
               <div className="timeline-marker">
                 <div className="timeline-dot"></div>
                 {index !== educationData.length - 1 && (
@@ -70,6 +75,7 @@ function Education() {
                 )}
               </div>
               <div className="timeline-content">
+                <CardMatrixBackground />
                 <span className="timeline-period">{item.period}</span>
                 <h2 className="degree-title">{item.degree}</h2>
                 <h3 className="school-name">{item.school}</h3>
@@ -90,18 +96,18 @@ function Education() {
           ))}
         </div>
 
-        <div className="certifications-section">
+        <div className="certifications-section scroll-animate">
           <h2 className="section-title">{t.education.certifications}</h2>
           <div className="certifications-grid">
-            <div className="certification-card">
+            <div className="certification-card scroll-animate scroll-delay-1">
               <h3>Certification 1</h3>
               <p>Organisme - Année</p>
             </div>
-            <div className="certification-card">
+            <div className="certification-card scroll-animate scroll-delay-2">
               <h3>Certification 2</h3>
               <p>Organisme - Année</p>
             </div>
-            <div className="certification-card">
+            <div className="certification-card scroll-animate scroll-delay-3">
               <h3>Formation en ligne</h3>
               <p>Plateforme - Année</p>
             </div>

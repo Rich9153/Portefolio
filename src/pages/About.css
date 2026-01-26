@@ -42,15 +42,19 @@
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 50%;
   border: 3px solid #00d9ff;
   box-shadow: 0 8px 30px rgba(0, 217, 255, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: float 6s ease-in-out infinite;
 }
 
-.profile-image:hover {
-  transform: scale(1.02);
-  box-shadow: 0 12px 40px rgba(0, 217, 255, 0.5);
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
 }
 
 .about-text {
@@ -78,28 +82,37 @@
 }
 
 .skill-category {
-  background-color: #1a1a2e;
+  background-color: rgba(26, 26, 46, 0.3);
+  backdrop-filter: blur(10px);
   padding: 1.5rem;
   border-radius: 12px;
-  border: 1px solid rgba(0, 217, 255, 0.2);
+  border: 1px solid rgba(0, 217, 255, 0.3);
+  position: relative;
+  overflow: hidden;
 }
 
 .skill-category h3 {
   color: #00d9ff;
   margin-bottom: 1rem;
   font-size: 1.3rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
 }
 
 .skill-category ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .skill-category li {
-  color: #b0b0b0;
+  color: #e0e0e0;
   padding: 0.5rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 600;
 }
 
 .skill-category li:last-child {

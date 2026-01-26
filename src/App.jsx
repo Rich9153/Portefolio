@@ -3,6 +3,8 @@ import { AnimatePresence } from 'framer-motion';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 import Navbar from './components/Navbar';
 import PageTransition from './components/PageTransition';
+import SmoothScroll from './components/SmoothScroll';
+import MatrixBackground from './components/MatrixBackground';
 import Home from './pages/Home';
 import About from './pages/About';
 import Education from './pages/Education';
@@ -16,6 +18,7 @@ function AnimatedRoutes() {
 
   return (
     <>
+      <MatrixBackground />
       <Navbar />
       <main className="main-content">
         <AnimatePresence mode="wait">
@@ -48,7 +51,9 @@ function AppContent() {
 function App() {
   return (
     <LanguageProvider>
-      <AppContent />
+      <SmoothScroll>
+        <AppContent />
+      </SmoothScroll>
     </LanguageProvider>
   );
 }
