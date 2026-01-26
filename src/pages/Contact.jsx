@@ -188,11 +188,8 @@ function Contact() {
                 <a href="https://github.com/Rich9153" className="social-icon" target="_blank" rel="noopener noreferrer">
                   <span>GitHub</span>
                 </a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/ulrich-babbel-mbonihankuye-798a752b1/" className="social-icon" target="_blank" rel="noopener noreferrer">
                   <span>LinkedIn</span>
-                </a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer">
-                  <span>Twitter</span>
                 </a>
               </div>
             </div>
