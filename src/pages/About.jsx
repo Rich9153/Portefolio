@@ -19,7 +19,7 @@ function About() {
 
         <div className="about-content">
           <div className="about-image-section scroll-animate">
-            <img src="/images/babbelimage.jpeg" alt="Photo de profil" className="profile-image" />
+            <img src="/images/babbelimage.jpeg" alt={t.about.profileAlt} className="profile-image" />
           </div>
 
           <div className="about-text">

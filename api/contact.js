@@ -3,6 +3,16 @@
 // Envoie un email via Nodemailer + confirmation à l'expéditeur
 
 import nodemailer from "nodemailer";
+import process from "node:process";
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
 
 // Template HTML pour l'email que tu reçois
 function createRecipientEmail(name, email, subject, message, language) {
@@ -192,10 +202,31 @@ export default async function handler(req, res) {
   }
 
   // Récupérer les champs envoyés depuis le formulaire
-  const { name, email, subject, message, language = 'fr' } = req.body;
+  const {
+    name = '',
+    email = '',
+    subject = '',
+    message = '',
+    website = '',
+    language: requestedLanguage = 'fr'
+  } = req.body || {};
+  const language = requestedLanguage === 'en' ? 'en' : 'fr';
+
+  // Champ invisible : les robots le remplissent, les visiteurs humains non.
+  if (website) {
+    const successMsg = language === 'fr'
+      ? 'Message envoyé avec succès.'
+      : 'Message sent successfully.';
+    return res.status(200).json({ success: true, message: successMsg });
+  }
+
+  const cleanName = String(name).trim();
+  const cleanEmail = String(email).trim();
+  const cleanSubject = String(subject).trim();
+  const cleanMessage = String(message).trim();
 
   // Vérification des champs requis
-  if (!name || !email || !subject || !message) {
+  if (!cleanName || !cleanEmail || !cleanSubject || !cleanMessage) {
     const errorMsg = language === 'fr'
       ? 'Tous les champs sont requis'
       : 'All fields are required';
@@ -204,52 +235,84 @@ export default async function handler(req, res) {
 
   // Validation de l'email
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
+  if (!emailRegex.test(cleanEmail)) {
     const errorMsg = language === 'fr'
       ? 'Adresse email invalide'
       : 'Invalid email address';
     return res.status(400).json({ success: false, message: errorMsg });
   }
 
+  if (cleanName.length > 100 || cleanEmail.length > 254 || cleanSubject.length > 160 || cleanMessage.length > 5000) {
+    const errorMsg = language === 'fr'
+      ? 'Un ou plusieurs champs sont trop longs'
+      : 'One or more fields are too long';
+    return res.status(400).json({ success: false, message: errorMsg });
+  }
+
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    const errorMsg = language === 'fr'
+      ? 'Le service de messagerie est temporairement indisponible'
+      : 'The messaging service is temporarily unavailable';
+    return res.status(503).json({ success: false, message: errorMsg });
+  }
+
   try {
-    // Configuration du transporteur Gmail
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+      connectionTimeout: 10000,
+      greetingTimeout: 10000,
+      socketTimeout: 15000,
     });
 
     // 1. Envoyer l'email au propriétaire du portfolio (toi)
     const recipientSubject = language === 'fr'
-      ? `[Portfolio] Nouveau message: ${subject}`
-      : `[Portfolio] New message: ${subject}`;
+      ? `[Portfolio] Nouveau message: ${cleanSubject}`
+      : `[Portfolio] New message: ${cleanSubject}`;
 
     await transporter.sendMail({
       from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER,
-      replyTo: email,
+      to: process.env.EMAIL_TO || process.env.EMAIL_USER,
+      replyTo: cleanEmail,
       subject: recipientSubject,
-      html: createRecipientEmail(name, email, subject, message, language),
+      text: `Nom: ${cleanName}\nEmail: ${cleanEmail}\nSujet: ${cleanSubject}\n\n${cleanMessage}`,
+      html: createRecipientEmail(
+        escapeHtml(cleanName),
+        escapeHtml(cleanEmail),
+        escapeHtml(cleanSubject),
+        escapeHtml(cleanMessage),
+        language
+      ),
     });
 
-    // 2. Envoyer l'email de confirmation à l'expéditeur
-    const confirmSubject = language === 'fr'
-      ? 'Confirmation de votre message - Portfolio Ulrich Babbel'
-      : 'Message confirmation - Portfolio Ulrich Babbel';
+    // La confirmation au visiteur est optionnelle pour éviter l'utilisation abusive du formulaire.
+    if (process.env.SEND_CONFIRMATION === 'true') {
+      const confirmSubject = language === 'fr'
+        ? 'Confirmation de votre message - Portfolio Ulrich Babbel'
+        : 'Message confirmation - Portfolio Ulrich Babbel';
 
-    await transporter.sendMail({
-      from: `"Ulrich Babbel" <${process.env.EMAIL_USER}>`,
-      to: email,
-      subject: confirmSubject,
-      html: createConfirmationEmail(name, subject, message, language),
-    });
+      await transporter.sendMail({
+        from: `"Ulrich Babbel" <${process.env.EMAIL_USER}>`,
+        to: cleanEmail,
+        subject: confirmSubject,
+        html: createConfirmationEmail(
+          escapeHtml(cleanName),
+          escapeHtml(cleanSubject),
+          escapeHtml(cleanMessage),
+          language
+        ),
+      });
+    }
 
     // Réponse succès
     const successMsg = language === 'fr'
-      ? 'Message envoyé avec succès ! Vous recevrez une confirmation par email.'
-      : 'Message sent successfully! You will receive a confirmation email.';
+      ? 'Message envoyé avec succès ! Je vous répondrai dès que possible.'
+      : 'Message sent successfully! I will reply as soon as possible.';
 
     return res.status(200).json({
       success: true,

@@ -48,7 +48,7 @@ function Home() {
         </div>
         <div className="hero-animation">
           <div className="floating-bubble scroll-animate">
-            <img src="/images/babbelimage.jpeg" alt="Profile" className="profile-image" />
+            <img src="/images/babbelimage.jpeg" alt={t.home.profileAlt} className="profile-image" />
           </div>
 
           {/* ============== ANCIEN CODE VIDÉO COMMENTÉ ==============

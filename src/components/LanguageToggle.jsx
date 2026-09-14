@@ -2,13 +2,14 @@ import { useLanguage } from '../contexts/LanguageContext';
 import './LanguageToggle.css';
 
 function LanguageToggle() {
-  const { language, toggleLanguage } = useLanguage();
+  const { language, toggleLanguage, t } = useLanguage();
 
   return (
     <button
       className="language-toggle"
       onClick={toggleLanguage}
-      aria-label="Change language"
+      aria-label={t.nav.changeLanguage}
+      title={t.nav.changeLanguage}
     >
       <span className={`lang-option ${language === 'fr' ? 'active' : ''}`}>FR</span>
       <span className="separator">/</span>

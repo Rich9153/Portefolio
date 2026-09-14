@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 const LanguageContext = createContext();
 
@@ -11,7 +11,15 @@ export const useLanguage = () => {
 };
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('fr'); // 'fr' ou 'en'
+  const [language, setLanguage] = useState(() => {
+    const savedLanguage = localStorage.getItem('portfolio-language');
+    return savedLanguage === 'en' ? 'en' : 'fr';
+  });
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+    localStorage.setItem('portfolio-language', language);
+  }, [language]);
 
   const toggleLanguage = () => {
     setLanguage(prev => prev === 'fr' ? 'en' : 'fr');
@@ -25,13 +33,15 @@ export const LanguageProvider = ({ children }) => {
         about: 'À propos',
         education: 'Parcours',
         projects: 'Projets',
-        contact: 'Contact'
+        contact: 'Contact',
+        changeLanguage: 'Passer le site en anglais'
       },
       // Home page
       home: {
         title: 'Ulrich Babbel',
         titleHighlight: 'Mbonihankuye',
         subtitle: 'Étudiant en Master ICE-LD · Développement logiciel, web et data',
+        profileAlt: 'Portrait d’Ulrich Babbel Mbonihankuye',
         viewProjects: 'Voir mes projets',
         contactMe: 'Me contacter',
         aboutCard: {
@@ -55,6 +65,7 @@ export const LanguageProvider = ({ children }) => {
         skills: 'Mes compétences',
         interests: 'Mes intérêts',
         interestsText: 'J\'aime tout ce qui touche à la musique : techno, afro-beat, l\'art (le dessin). Comme sport j\'aime faire de la natation, jouer au Rugby, et j\'ai un intérêt particulier pour tout ce qui est en rapport avec l\'évolution de la technologie.',
+        profileAlt: 'Portrait d’Ulrich Babbel Mbonihankuye',
         skillCategories: {
           languages: 'Langages de programmation',
           frontend: 'Frontend',
@@ -68,12 +79,97 @@ export const LanguageProvider = ({ children }) => {
         title: 'Parcours Académique',
         achievements: 'Points forts :',
         certifications: 'Certifications & Formations',
-        inProgress: 'En cours'
+        inProgress: 'En cours',
+        items: [
+          {
+            id: 1,
+            degree: 'Master ICE-LD (Ingénierie Continue des Écosystèmes Logiciels et Données)',
+            school: 'Université Toulouse Jean Jaurès',
+            location: 'Toulouse, France',
+            period: '2025 - Présent',
+            description: 'Master en cours axé sur l’ingénierie logicielle, les pratiques DevOps et la gestion des données.',
+            achievements: ['Formation en cours']
+          },
+          {
+            id: 2,
+            degree: 'Licence MIASHS (Mathématiques et Informatique Appliquées aux Sciences Humaines et Sociales)',
+            school: 'Université Toulouse Jean Jaurès',
+            location: 'Toulouse, France',
+            period: '2022 - 2025',
+            description: 'Spécialisation en développement logiciel et analyse de données.',
+            achievements: [
+              'Projet de fin d’études sur un système de suivi des candidatures (ATS)',
+              'Stage chez Solio Group'
+            ]
+          },
+          {
+            id: 3,
+            degree: 'Licence en Informatique de Gestion',
+            school: 'Université Lumière de Bujumbura',
+            location: 'Bujumbura, Burundi',
+            period: '2020 - 2022',
+            description: 'Formation générale en informatique, développement et gestion.',
+            achievements: ['Projet tutoré']
+          },
+          {
+            id: 4,
+            degree: 'Baccalauréat Scientifique',
+            school: 'Lycée du Lac Tanganyika',
+            location: 'Bujumbura, Burundi',
+            period: '2018 - 2019',
+            description: 'Section scientifique : biologie, chimie et sciences de la Terre.',
+            achievements: ['Mention Bien']
+          }
+        ]
       },
       // Projects page
       projects: {
         title: 'Mes Projets',
         subtitle: 'Découvrez mes réalisations académiques, personnelles et professionnelles',
+        openProject: 'Découvrir le projet',
+        categories: {
+          academic: 'Projets académiques',
+          personal: 'Projets personnels',
+          company: 'Projets professionnels'
+        },
+        items: {
+          academic: [
+            {
+              title: 'Projet Réseaux',
+              url: 'https://github.com/Rich9153/Projet_Reseaux',
+              description: 'Projet académique en langage C autour de la programmation réseau.'
+            },
+            {
+              title: 'Outils agiles — Master 1',
+              url: 'https://github.com/Rich9153/cours-M1-agile-tools',
+              description: 'Travaux pratiques Python autour des méthodes et outils agiles.'
+            }
+          ],
+          personal: [
+            {
+              title: 'Mon Blog',
+              url: 'https://github.com/Rich9153/monblog',
+              description: 'Blog moderne réalisé avec Next.js.'
+            },
+            {
+              title: 'Projet humanitaire',
+              url: 'https://github.com/Rich9153/Projet-humanitaire',
+              description: 'Projet web dédié à une initiative humanitaire.'
+            },
+            {
+              title: 'Portfolio',
+              url: 'https://github.com/Rich9153/Portefolio',
+              description: 'Ce portfolio bilingue construit avec React et Vite.'
+            }
+          ],
+          company: [
+            {
+              title: 'GEM e-Mobility',
+              url: 'https://gem-emobility.com/',
+              description: 'Plateforme présentant le déploiement de la première station de mobilité électrique au Burundi.'
+            }
+          ]
+        },
         filters: {
           all: 'Tous',
           academic: 'Académiques',
@@ -103,7 +199,11 @@ export const LanguageProvider = ({ children }) => {
           message: 'Message',
           messagePlaceholder: 'Votre message...',
           send: 'Envoyer le message',
-          success: 'Message envoyé ! (fonctionnalité à implémenter)'
+          sending: 'Envoi en cours…',
+          success: 'Message envoyé avec succès.',
+          error: 'Impossible d’envoyer le message. Réessayez ou contactez-moi directement par e-mail.',
+          closeNotification: 'Fermer la notification',
+          website: 'Site web'
         },
         info: {
           email: 'Email',
@@ -124,13 +224,15 @@ export const LanguageProvider = ({ children }) => {
         about: 'About',
         education: 'Education',
         projects: 'Projects',
-        contact: 'Contact'
+        contact: 'Contact',
+        changeLanguage: 'Switch the website to French'
       },
       // Home page
       home: {
         title: 'Ulrich Babbel',
         titleHighlight: 'Mbonihankuye',
         subtitle: 'ICE-LD Master’s student · Software, web and data development',
+        profileAlt: 'Portrait of Ulrich Babbel Mbonihankuye',
         viewProjects: 'View my projects',
         contactMe: 'Contact me',
         aboutCard: {
@@ -154,6 +256,7 @@ export const LanguageProvider = ({ children }) => {
         skills: 'My Skills',
         interests: 'My Interests',
         interestsText: 'I love everything related to music: techno, afro-beat, art (drawing). As for sports, I enjoy swimming, playing Rugby, and I have a particular interest in everything related to the evolution of technology.',
+        profileAlt: 'Portrait of Ulrich Babbel Mbonihankuye',
         skillCategories: {
           languages: 'Programming Languages',
           frontend: 'Frontend',
@@ -167,12 +270,97 @@ export const LanguageProvider = ({ children }) => {
         title: 'Academic Background',
         achievements: 'Highlights:',
         certifications: 'Certifications & Training',
-        inProgress: 'In Progress'
+        inProgress: 'In Progress',
+        items: [
+          {
+            id: 1,
+            degree: 'ICE-LD Master’s Degree (Continuous Engineering of Software and Data Ecosystems)',
+            school: 'Toulouse Jean Jaurès University',
+            location: 'Toulouse, France',
+            period: '2025 - Present',
+            description: 'Ongoing Master’s degree focused on software engineering, DevOps practices and data management.',
+            achievements: ['Currently studying']
+          },
+          {
+            id: 2,
+            degree: 'MIASHS Bachelor’s Degree (Applied Mathematics and Computer Science for Social Sciences)',
+            school: 'Toulouse Jean Jaurès University',
+            location: 'Toulouse, France',
+            period: '2022 - 2025',
+            description: 'Specialisation in software development and data analysis.',
+            achievements: [
+              'Final-year project on an Applicant Tracking System (ATS)',
+              'Internship at Solio Group'
+            ]
+          },
+          {
+            id: 3,
+            degree: 'Bachelor’s Degree in Business Information Technology',
+            school: 'Université Lumière de Bujumbura',
+            location: 'Bujumbura, Burundi',
+            period: '2020 - 2022',
+            description: 'General education in computer science, software development and management.',
+            achievements: ['Supervised academic project']
+          },
+          {
+            id: 4,
+            degree: 'Scientific Baccalaureate',
+            school: 'Lycée du Lac Tanganyika',
+            location: 'Bujumbura, Burundi',
+            period: '2018 - 2019',
+            description: 'Science curriculum focused on biology, chemistry and Earth science.',
+            achievements: ['Graduated with honours']
+          }
+        ]
       },
       // Projects page
       projects: {
         title: 'My Projects',
         subtitle: 'Discover my academic, personal and professional achievements',
+        openProject: 'View project',
+        categories: {
+          academic: 'Academic projects',
+          personal: 'Personal projects',
+          company: 'Professional projects'
+        },
+        items: {
+          academic: [
+            {
+              title: 'Network Programming Project',
+              url: 'https://github.com/Rich9153/Projet_Reseaux',
+              description: 'An academic C project focused on network programming.'
+            },
+            {
+              title: 'Agile Tools — Master’s Year 1',
+              url: 'https://github.com/Rich9153/cours-M1-agile-tools',
+              description: 'Python coursework exploring agile methods and development tools.'
+            }
+          ],
+          personal: [
+            {
+              title: 'My Blog',
+              url: 'https://github.com/Rich9153/monblog',
+              description: 'A modern blog built with Next.js.'
+            },
+            {
+              title: 'Humanitarian Project',
+              url: 'https://github.com/Rich9153/Projet-humanitaire',
+              description: 'A web project supporting a humanitarian initiative.'
+            },
+            {
+              title: 'Portfolio',
+              url: 'https://github.com/Rich9153/Portefolio',
+              description: 'This bilingual portfolio built with React and Vite.'
+            }
+          ],
+          company: [
+            {
+              title: 'GEM e-Mobility',
+              url: 'https://gem-emobility.com/',
+              description: 'A platform showcasing the deployment of Burundi’s first electric mobility station.'
+            }
+          ]
+        },
         filters: {
           all: 'All',
           academic: 'Academic',
@@ -202,7 +390,11 @@ export const LanguageProvider = ({ children }) => {
           message: 'Message',
           messagePlaceholder: 'Your message...',
           send: 'Send message',
-          success: 'Message sent! (feature to be implemented)'
+          sending: 'Sending…',
+          success: 'Message sent successfully.',
+          error: 'Unable to send the message. Please try again or contact me directly by email.',
+          closeNotification: 'Close notification',
+          website: 'Website'
         },
         info: {
           email: 'Email',

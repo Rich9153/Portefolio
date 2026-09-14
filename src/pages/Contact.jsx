@@ -18,7 +18,8 @@ function Contact() {
     name: '',
     email: '',
     subject: '',
-    message: ''
+    message: '',
+    website: ''
   });
   const [isLoading, setIsLoading] = useState(false);
   const [notification, setNotification] = useState({ show: false, type: '', message: '' });
@@ -53,28 +54,25 @@ function Contact() {
         }),
       });
 
-      const data = await response.json();
+      const data = await response.json().catch(() => ({ success: false }));
 
-      if (data.success) {
-        showNotification('success', data.message);
+      if (response.ok && data.success) {
+        showNotification('success', data.message || t.contact.form.success);
 
         // Réinitialiser le formulaire
         setFormData({
           name: '',
           email: '',
           subject: '',
-          message: ''
+          message: '',
+          website: ''
         });
       } else {
-        showNotification('error', data.message);
+        showNotification('error', data.message || t.contact.form.error);
       }
     } catch (error) {
       console.error('Erreur lors de l\'envoi:', error);
-      const errorMessage = language === 'fr'
-        ? 'Erreur lors de l\'envoi du message. Veuillez réessayer ou me contacter directement par email.'
-        : 'Error sending message. Please try again or contact me directly by email.';
-
-      showNotification('error', errorMessage);
+      showNotification('error', t.contact.form.error);
     } finally {
       setIsLoading(false);
     }
@@ -139,6 +137,7 @@ function Contact() {
           <button
             className="notification-close"
             onClick={() => setNotification({ show: false, type: '', message: '' })}
+            aria-label={t.contact.form.closeNotification}
           >
             ×
           </button>
@@ -197,6 +196,18 @@ function Contact() {
 
           <form className="contact-form scroll-animate scroll-delay-2" onSubmit={handleSubmit}>
             <CardMatrixBackground />
+            <div className="contact-honeypot" aria-hidden="true">
+              <label htmlFor="website">{t.contact.form.website}</label>
+              <input
+                type="text"
+                id="website"
+                name="website"
+                value={formData.website}
+                onChange={handleChange}
+                tabIndex="-1"
+                autoComplete="off"
+              />
+            </div>
             <div className="form-group">
               <label htmlFor="name">{t.contact.form.name}</label>
               <input
@@ -250,7 +261,7 @@ function Contact() {
             </div>
 
             <button type="submit" className="submit-btn" disabled={isLoading}>
-              {isLoading ? (language === 'fr' ? 'Envoi en cours...' : 'Sending...') : t.contact.form.send}
+              {isLoading ? t.contact.form.sending : t.contact.form.send}
             </button>
           </form>
         </div>

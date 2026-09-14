@@ -13,51 +13,8 @@ function Projects() {
   // Animation au scroll
   useScrollAnimationMultiple('.scroll-animate');
 
-  // Liens vers les sites dédiés des projets
-  const projectLinks = {
-    academic: [
-      {
-        title: "Projet Réseaux",
-        url: "https://github.com/Rich9153/Projet_Reseaux",
-        description: "Projet académique en langage C autour de la programmation réseau."
-      },
-      {
-        title: "Outils agiles — Master 1",
-        url: "https://github.com/Rich9153/cours-M1-agile-tools",
-        description: "Travaux pratiques Python autour des méthodes et outils agiles."
-      }
-    ],
-    personal: [
-      {
-        title: "Mon Blog",
-        url: "https://github.com/Rich9153/monblog",
-        description: "Blog moderne réalisé avec Next.js."
-      },
-      {
-        title: "Projet humanitaire",
-        url: "https://github.com/Rich9153/Projet-humanitaire",
-        description: "Projet web dédié à une initiative humanitaire."
-      },
-      {
-        title: "Portfolio",
-        url: "https://github.com/Rich9153/Portefolio",
-        description: "Ce portfolio bilingue construit avec React et Vite."
-      }
-    ],
-    company: [
-      {
-        title: "GEM e-Mobility",
-        url: "https://gem-emobility.com/",
-        description: "Plateforme présentant le déploiement de la première station de mobilité électrique au Burundi."
-      }
-    ]
-  };
-
-  const categoryNames = {
-    academic: t.projects.categories?.academic || "Projets Académiques",
-    personal: t.projects.categories?.personal || "Projets Personnels",
-    company: t.projects.categories?.company || "Projets en Entreprise"
-  };
+  const projectLinks = t.projects.items;
+  const categoryNames = t.projects.categories;
 
   /* ============== ANCIEN CODE COMMENTÉ ==============
   // Données d'exemple - à personnaliser
@@ -168,7 +125,7 @@ function Projects() {
                   >
                     <h3 className="project-link-title">{project.title}</h3>
                     <p className="project-link-description">{project.description}</p>
-                    <span className="project-link-arrow">→</span>
+                    <span className="project-link-arrow" aria-label={t.projects.openProject}>→</span>
                   </a>
                 ))}
               </div>
