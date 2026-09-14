@@ -96,23 +96,6 @@ function Education() {
           ))}
         </div>
 
-        <div className="certifications-section scroll-animate">
-          <h2 className="section-title">{t.education.certifications}</h2>
-          <div className="certifications-grid">
-            <div className="certification-card scroll-animate scroll-delay-1">
-              <h3>Certification 1</h3>
-              <p>Organisme - Année</p>
-            </div>
-            <div className="certification-card scroll-animate scroll-delay-2">
-              <h3>Certification 2</h3>
-              <p>Organisme - Année</p>
-            </div>
-            <div className="certification-card scroll-animate scroll-delay-3">
-              <h3>Formation en ligne</h3>
-              <p>Plateforme - Année</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

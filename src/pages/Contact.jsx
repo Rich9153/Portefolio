@@ -178,7 +178,7 @@ function Contact() {
               <CardMatrixBackground />
               <div className="info-icon">📍</div>
               <h3>{t.contact.info.location}</h3>
-              <p>275 Route De Seysses, Toulouse 31100</p>
+              <p>Toulouse, France</p>
             </div>
 
             <div className="social-links scroll-animate scroll-delay-4">

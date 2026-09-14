@@ -29,9 +29,9 @@ export const LanguageProvider = ({ children }) => {
       },
       // Home page
       home: {
-        title: 'Bienvenue sur mon',
-        titleHighlight: 'Portfolio',
-        subtitle: 'Développeur passionné par la création de solutions innovantes',
+        title: 'Ulrich Babbel',
+        titleHighlight: 'Mbonihankuye',
+        subtitle: 'Étudiant en Master ICE-LD · Développement logiciel, web et data',
         viewProjects: 'Voir mes projets',
         contactMe: 'Me contacter',
         aboutCard: {
@@ -51,7 +51,7 @@ export const LanguageProvider = ({ children }) => {
       about: {
         title: 'À propos de moi',
         whoAmI: 'Qui suis-je ?',
-        whoAmIText: 'Originaire du Burundi mais né au Bénin, arrivé en France en 2022, je suis un étudiant à l\'Université Mirail Jean-Jaurès en Master ICE-LD (Master en Ingénieurie Continue des Ecosystèmes Logiciels et Données), je suis passionné par le développement logiciel, web, etc...',
+        whoAmIText: 'Originaire du Burundi, né au Bénin et installé en France depuis 2022, je suis étudiant en Master ICE-LD (Ingénierie Continue des Écosystèmes Logiciels et Données) à l\'Université Toulouse Jean Jaurès. Je conçois des applications web et logicielles en portant une attention particulière à la qualité du code, aux données et à l\'expérience utilisateur.',
         skills: 'Mes compétences',
         interests: 'Mes intérêts',
         interestsText: 'J\'aime tout ce qui touche à la musique : techno, afro-beat, l\'art (le dessin). Comme sport j\'aime faire de la natation, jouer au Rugby, et j\'ai un intérêt particulier pour tout ce qui est en rapport avec l\'évolution de la technologie.',
@@ -128,9 +128,9 @@ export const LanguageProvider = ({ children }) => {
       },
       // Home page
       home: {
-        title: 'Welcome to my',
-        titleHighlight: 'Portfolio',
-        subtitle: 'Developer passionate about creating innovative solutions',
+        title: 'Ulrich Babbel',
+        titleHighlight: 'Mbonihankuye',
+        subtitle: 'ICE-LD Master’s student · Software, web and data development',
         viewProjects: 'View my projects',
         contactMe: 'Contact me',
         aboutCard: {
@@ -150,7 +150,7 @@ export const LanguageProvider = ({ children }) => {
       about: {
         title: 'About Me',
         whoAmI: 'Who am I?',
-        whoAmIText: 'Originally from Burundi but born in Benin, arrived in France in 2022, I am a student at Mirail Jean-Jaurès University in Master ICE-LD (Master in Continuous Engineering of Software and Data Ecosystems), I am passionate about software development, web, etc...',
+        whoAmIText: 'Originally from Burundi, born in Benin and living in France since 2022, I am an ICE-LD Master’s student (Continuous Engineering of Software and Data Ecosystems) at Toulouse Jean Jaurès University. I build web and software applications with a strong focus on code quality, data and user experience.',
         skills: 'My Skills',
         interests: 'My Interests',
         interestsText: 'I love everything related to music: techno, afro-beat, art (drawing). As for sports, I enjoy swimming, playing Rugby, and I have a particular interest in everything related to the evolution of technology.',

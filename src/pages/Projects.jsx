@@ -17,53 +17,38 @@ function Projects() {
   const projectLinks = {
     academic: [
       {
-        title: "Game of Trivia 'Music'",
-        url: "https://votre-lien-trivia.com", // Remplacer par le vrai lien
-        description: "Jeu de quiz musical"
+        title: "Projet Réseaux",
+        url: "https://github.com/Rich9153/Projet_Reseaux",
+        description: "Projet académique en langage C autour de la programmation réseau."
       },
       {
-        title: "Organisation de la fête à l'université",
-        url: "https://votre-lien-fete.com", // Remplacer par le vrai lien
-        description: "Application de gestion d'événements"
-      },
-      {
-        title: "Campus Explorer",
-        url: "https://votre-lien-campus.com", // Remplacer par le vrai lien
-        description: "Jeu de découverte de l'université"
+        title: "Outils agiles — Master 1",
+        url: "https://github.com/Rich9153/cours-M1-agile-tools",
+        description: "Travaux pratiques Python autour des méthodes et outils agiles."
       }
     ],
     personal: [
       {
-        title: "Projet Personnel 1",
-        url: "https://votre-lien-perso1.com", // Remplacer par le vrai lien
-        description: "Application web moderne"
+        title: "Mon Blog",
+        url: "https://github.com/Rich9153/monblog",
+        description: "Blog moderne réalisé avec Next.js."
       },
       {
-        title: "Projet Personnel 2",
-        url: "https://votre-lien-perso2.com", // Remplacer par le vrai lien
-        description: "Application Next.js"
+        title: "Projet humanitaire",
+        url: "https://github.com/Rich9153/Projet-humanitaire",
+        description: "Projet web dédié à une initiative humanitaire."
+      },
+      {
+        title: "Portfolio",
+        url: "https://github.com/Rich9153/Portefolio",
+        description: "Ce portfolio bilingue construit avec React et Vite."
       }
     ],
     company: [
       {
-        title: "ATS (Applicant Tracking System)",
-        url: "https://votre-lien-ats.com", // Remplacer par le vrai lien
-        description: "Système de suivi des candidatures"
-      },
-      {
-        title: "B-BCF Burundi",
-        url: "https://votre-lien-bbcf.com", // Remplacer par le vrai lien
-        description: "Site pour mettre en avant les relations entre entrepreneurs Burundais et Européens"
-      },
-      {
         title: "GEM e-Mobility",
         url: "https://gem-emobility.com/",
-        description: "Site montrant l'évolution de la mise en place de la première station électrique au Burundi"
-      },
-      {
-        title: "Projet en Entreprise 2",
-        url: "https://votre-lien-entreprise2.com", // Remplacer par le vrai lien
-        description: "Architecture microservices"
+        description: "Plateforme présentant le déploiement de la première station de mobilité électrique au Burundi."
       }
     ]
   };

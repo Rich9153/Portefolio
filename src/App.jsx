@@ -32,7 +32,7 @@ function AnimatedRoutes() {
         </AnimatePresence>
       </main>
       <footer className="footer">
-        <p>&copy; 2024 {t.footer.rights}</p>
+        <p>&copy; {new Date().getFullYear()} {t.footer.rights}</p>
       </footer>
     </>
   );
