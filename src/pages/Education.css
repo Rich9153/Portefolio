@@ -1,11 +1,12 @@
 .education { padding: 86px 0 110px; }
+.education-container { width: 100%; min-width: 0; }
 .education-header { margin-bottom: 64px; }
-.timeline { position: relative; display: grid; gap: 0; }
-.timeline::before { content: ''; position: absolute; top: 0; bottom: 0; left: 154px; width: 1px; background: var(--border); }
-.timeline-item { display: grid; grid-template-columns: 130px 1fr; gap: 48px; padding-bottom: 18px; }
+.timeline { position: relative; display: grid; width: 100%; min-width: 0; gap: 0; }
+.timeline::before { content: ''; position: absolute; top: 0; bottom: 0; left: 13px; width: 1px; background: var(--border); }
+.timeline-item { display: block; width: 100%; min-width: 0; padding: 0 0 18px 52px; }
 .timeline-marker { display: none; }
-.timeline-content { position: relative; padding: 30px 32px 36px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); transition: border-color .25s ease, transform .25s ease; }
-.timeline-content::before { content: ''; position: absolute; left: -30px; top: 35px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-primary); box-shadow: 0 0 0 7px var(--bg-primary); }
+.timeline-content { position: relative; width: 100%; min-width: 0; padding: 30px 32px 36px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); transition: border-color .25s ease, transform .25s ease; }
+.timeline-content::before { content: ''; position: absolute; left: -44px; top: 35px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-primary); box-shadow: 0 0 0 7px var(--bg-primary); }
 .timeline-content:hover { transform: translateX(4px); border-color: var(--border-strong); }
 .timeline-meta { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 26px; }
 .timeline-index { color: var(--text-muted); font-size: .72rem; letter-spacing: .14em; }
@@ -19,4 +20,12 @@
 .achievements ul { display: grid; gap: 8px; list-style: none; }
 .achievements li { color: var(--text-secondary); font-size: .9rem; }
 .achievements li::before { content: '↳'; margin-right: 9px; color: var(--accent-primary); }
-@media (max-width: 720px) { .education { padding-top: 54px; } .timeline::before { left: 5px; } .timeline-item { grid-template-columns: 1fr; padding-left: 28px; } .timeline-content::before { left: -28px; } }
+@media (max-width: 720px) {
+  .education { padding-top: 54px; }
+  .education-header { margin-bottom: 44px; }
+  .timeline::before { left: 5px; }
+  .timeline-item { padding-left: 24px; }
+  .timeline-content { padding: 24px 20px 28px; }
+  .timeline-content::before { left: -24px; top: 31px; }
+  .timeline-meta { align-items: flex-start; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+}
