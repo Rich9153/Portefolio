@@ -221,6 +221,14 @@ export const LanguageProvider = ({ children }) => {
           ],
           company: [
             {
+              title: 'ATS - Applicant Tracking System',
+              description: 'Application de suivi des candidatures réalisée pendant mon stage chez Solio Group / Asking France. Elle centralise les offres d’emploi, les candidatures, les étapes du recrutement et la planification des entretiens, avec des espaces adaptés aux administrateurs RH, aux responsables et aux candidats.',
+              kind: 'Recrutement',
+              label: 'Projet de stage',
+              technologies: ['React', 'Express.js', 'Bootstrap', 'Nodemailer', 'Bcrypt'],
+              images: ['/images/ATS-1.png', '/images/ATS-2.png', '/images/ATS-3.png']
+            },
+            {
               title: 'GEM e-Mobility',
               url: 'https://gem-emobility.com/',
               description: 'Plateforme présentant le déploiement de la première station de mobilité électrique au Burundi.',
@@ -476,6 +484,14 @@ export const LanguageProvider = ({ children }) => {
             }
           ],
           company: [
+            {
+              title: 'ATS - Applicant Tracking System',
+              description: 'An applicant tracking application built during my internship at Solio Group / Asking France. It centralises job offers, applications, recruitment stages and interview scheduling, with dedicated workflows for HR administrators, managers and candidates.',
+              kind: 'Recruitment',
+              label: 'Internship project',
+              technologies: ['React', 'Express.js', 'Bootstrap', 'Nodemailer', 'Bcrypt'],
+              images: ['/images/ATS-1.png', '/images/ATS-2.png', '/images/ATS-3.png']
+            },
             {
               title: 'GEM e-Mobility',
               url: 'https://gem-emobility.com/',

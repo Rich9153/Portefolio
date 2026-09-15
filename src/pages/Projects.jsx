@@ -91,7 +91,7 @@ function Projects() {
                         {t.projects.openProject} ↗
                       </a>
                     ) : (
-                      <span className="project-link-arrow project-course-label">{t.projects.courseProject}</span>
+                      <span className="project-link-arrow project-course-label">{project.label || t.projects.courseProject}</span>
                     )}
                   </article>
                 ))}
