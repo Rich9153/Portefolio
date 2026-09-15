@@ -145,6 +145,14 @@ export const LanguageProvider = ({ children }) => {
         title: 'Mes Projets',
         subtitle: 'Découvrez mes réalisations académiques, personnelles et professionnelles',
         openProject: 'Découvrir le projet',
+        courseProject: 'Projet réalisé en cours',
+        gallery: {
+          image: 'aperçu',
+          gallery: 'Galerie du projet',
+          previousImage: 'Afficher l’image précédente',
+          nextImage: 'Afficher l’image suivante',
+          showImage: 'Afficher l’image'
+        },
         categories: {
           academic: 'Projets académiques',
           personal: 'Projets personnels',
@@ -152,6 +160,27 @@ export const LanguageProvider = ({ children }) => {
         },
         items: {
           academic: [
+            {
+              title: 'Game of Trivia - Music',
+              description: 'Quiz musical développé en cours et inspiré du format « Question pour un champion ». L’application propose une série de questions à choix multiples, valide les réponses et fait progresser le joueur dans une expérience interactive. Ce projet m’a permis de consolider la structuration d’une interface web et la logique applicative en JavaScript.',
+              kind: 'Application web',
+              technologies: ['HTML5', 'CSS3', 'JavaScript'],
+              images: ['/images/trivia-1.png', '/images/trivia-2.png', '/images/trivia-3.png']
+            },
+            {
+              title: 'Organisation d’une fête universitaire',
+              description: 'Application de bureau conçue en cours pour coordonner les contributions des participants à un événement universitaire. L’organisateur peut consulter les produits annoncés et envoyer des rappels afin de mieux répartir les apports et d’éviter les manques ou les doublons.',
+              kind: 'Application desktop',
+              technologies: ['Python', 'Tkinter'],
+              images: ['/images/fete-1.png', '/images/fete-2.png', '/images/fete-3.png']
+            },
+            {
+              title: 'Campus Explorer',
+              description: 'Jeu collaboratif développé par une équipe de cinq étudiants pour faire découvrir le campus sous la forme d’une chasse aux lieux. Les joueurs identifient les endroits photographiés à partir d’indices, tandis que la plateforme permet aussi de proposer de nouveaux lieux et de se connecter avec les identifiants universitaires.',
+              kind: 'Projet d’équipe',
+              technologies: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MariaDB', 'Bootstrap'],
+              images: ['/images/campus-1.png', '/images/campus-2.png', '/images/campus-3.png']
+            },
             {
               title: 'Projet Réseaux',
               url: 'https://github.com/Rich9153/Projet_Reseaux',
@@ -372,6 +401,14 @@ export const LanguageProvider = ({ children }) => {
         title: 'My Projects',
         subtitle: 'Discover my academic, personal and professional achievements',
         openProject: 'View project',
+        courseProject: 'Course project',
+        gallery: {
+          image: 'preview',
+          gallery: 'Project gallery',
+          previousImage: 'Show previous image',
+          nextImage: 'Show next image',
+          showImage: 'Show image'
+        },
         categories: {
           academic: 'Academic projects',
           personal: 'Personal projects',
@@ -379,6 +416,27 @@ export const LanguageProvider = ({ children }) => {
         },
         items: {
           academic: [
+            {
+              title: 'Game of Trivia - Music',
+              description: 'A music quiz developed as coursework and inspired by the “Question pour un champion” format. The application presents a sequence of multiple-choice questions, validates answers and guides the player through an interactive experience. This project strengthened my understanding of web interface structure and application logic in JavaScript.',
+              kind: 'Web application',
+              technologies: ['HTML5', 'CSS3', 'JavaScript'],
+              images: ['/images/trivia-1.png', '/images/trivia-2.png', '/images/trivia-3.png']
+            },
+            {
+              title: 'University Party Planner',
+              description: 'A desktop application designed as coursework to coordinate participant contributions to a university event. The organiser can review the products that people plan to bring and send reminders to improve distribution while avoiding shortages and duplicates.',
+              kind: 'Desktop application',
+              technologies: ['Python', 'Tkinter'],
+              images: ['/images/fete-1.png', '/images/fete-2.png', '/images/fete-3.png']
+            },
+            {
+              title: 'Campus Explorer',
+              description: 'A collaborative game built by a five-student team to help people discover the campus through a location hunt. Players identify photographed places from clues, while the platform also supports new location suggestions and sign-in with university credentials.',
+              kind: 'Team project',
+              technologies: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MariaDB', 'Bootstrap'],
+              images: ['/images/campus-1.png', '/images/campus-2.png', '/images/campus-3.png']
+            },
             {
               title: 'Network Programming Project',
               url: 'https://github.com/Rich9153/Projet_Reseaux',
