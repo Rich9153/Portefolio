@@ -165,7 +165,7 @@ export const LanguageProvider = ({ children }) => {
               description: 'Quiz musical développé en cours et inspiré du format « Question pour un champion ». L’application propose une série de questions à choix multiples, valide les réponses et fait progresser le joueur dans une expérience interactive. Ce projet m’a permis de consolider la structuration d’une interface web et la logique applicative en JavaScript.',
               kind: 'Application web',
               technologies: ['HTML5', 'CSS3', 'JavaScript'],
-              images: ['/images/project-trivia-1.png', '/images/project-trivia-2.png', '/images/project-trivia-3.png']
+              images: ['/images/trivia-1.png', '/images/trivia-2.png', '/images/trivia-3.png']
             },
             {
               title: 'Organisation d’une fête universitaire',
@@ -179,7 +179,7 @@ export const LanguageProvider = ({ children }) => {
               description: 'Jeu collaboratif développé par une équipe de cinq étudiants pour faire découvrir le campus sous la forme d’une chasse aux lieux. Les joueurs identifient les endroits photographiés à partir d’indices, tandis que la plateforme permet aussi de proposer de nouveaux lieux et de se connecter avec les identifiants universitaires.',
               kind: 'Projet d’équipe',
               technologies: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MariaDB', 'Bootstrap'],
-              images: ['/images/project-campus-1.png', '/images/project-campus-2.png', '/images/project-campus-3.png']
+              images: ['/images/campus-1.png', '/images/campus-2.png', '/images/campus-3.png', '/images/campus-4.png']
             },
             {
               title: 'Projet Réseaux',
@@ -226,7 +226,7 @@ export const LanguageProvider = ({ children }) => {
               kind: 'Recrutement',
               label: 'Projet de stage',
               technologies: ['React', 'Express.js', 'Bootstrap', 'Nodemailer', 'Bcrypt'],
-              images: ['/images/project-ats-1.png', '/images/project-ats-2.png', '/images/project-ats-3.png']
+              images: ['/images/ATS-1.png', '/images/ATS-2.png', '/images/ATS-3.png']
             },
             {
               title: 'GEM e-Mobility',
@@ -429,7 +429,7 @@ export const LanguageProvider = ({ children }) => {
               description: 'A music quiz developed as coursework and inspired by the “Question pour un champion” format. The application presents a sequence of multiple-choice questions, validates answers and guides the player through an interactive experience. This project strengthened my understanding of web interface structure and application logic in JavaScript.',
               kind: 'Web application',
               technologies: ['HTML5', 'CSS3', 'JavaScript'],
-              images: ['/images/project-trivia-1.png', '/images/project-trivia-2.png', '/images/project-trivia-3.png']
+              images: ['/images/trivia-1.png', '/images/trivia-2.png', '/images/trivia-3.png']
             },
             {
               title: 'University Party Planner',
@@ -443,7 +443,7 @@ export const LanguageProvider = ({ children }) => {
               description: 'A collaborative game built by a five-student team to help people discover the campus through a location hunt. Players identify photographed places from clues, while the platform also supports new location suggestions and sign-in with university credentials.',
               kind: 'Team project',
               technologies: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MariaDB', 'Bootstrap'],
-              images: ['/images/project-campus-1.png', '/images/project-campus-2.png', '/images/project-campus-3.png']
+              images: ['/images/campus-1.png', '/images/campus-2.png', '/images/campus-3.png', '/images/campus-4.png']
             },
             {
               title: 'Network Programming Project',
@@ -490,7 +490,7 @@ export const LanguageProvider = ({ children }) => {
               kind: 'Recruitment',
               label: 'Internship project',
               technologies: ['React', 'Express.js', 'Bootstrap', 'Nodemailer', 'Bcrypt'],
-              images: ['/images/project-ats-1.png', '/images/project-ats-2.png', '/images/project-ats-3.png']
+              images: ['/images/ATS-1.png', '/images/ATS-2.png', '/images/ATS-3.png']
             },
             {
               title: 'GEM e-Mobility',
