@@ -1,6 +1,5 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import { useScrollAnimationMultiple } from '../hooks/useScrollAnimation';
-import CardMatrixBackground from '../components/CardMatrixBackground';
 import './Education.css';
 
 function Education() {
@@ -12,11 +11,12 @@ function Education() {
   const educationData = t.education.items;
 
   return (
-    <div className="education">
+    <div className="education page-shell">
       <div className="education-container">
         <div className="education-header scroll-animate">
+          <p className="page-eyebrow">{t.education.eyebrow}</p>
           <h1 className="page-title">{t.education.title}</h1>
-          <div className="title-underline"></div>
+          <p className="page-lead">{t.education.lead}</p>
         </div>
 
         <div className="timeline">
@@ -29,8 +29,7 @@ function Education() {
                 )}
               </div>
               <div className="timeline-content">
-                <CardMatrixBackground />
-                <span className="timeline-period">{item.period}</span>
+                <div className="timeline-meta"><span className="timeline-index">0{index + 1}</span><span className="timeline-period">{item.period}</span></div>
                 <h2 className="degree-title">{item.degree}</h2>
                 <h3 className="school-name">{item.school}</h3>
                 <p className="school-location">{item.location}</p>

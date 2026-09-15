@@ -2,7 +2,6 @@ import { useState } from 'react';
 // import emailjs from '@emailjs/browser'; // Ancien système commenté
 import { useLanguage } from '../contexts/LanguageContext';
 import { useScrollAnimationMultiple } from '../hooks/useScrollAnimation';
-import CardMatrixBackground from '../components/CardMatrixBackground';
 import './Contact.css';
 
 // URL de l'API Vercel Serverless
@@ -126,10 +125,10 @@ function Contact() {
   ============== FIN ANCIEN CODE EMAILJS COMMENTÉ ============== */
 
   return (
-    <div className="contact">
+    <div className="contact page-shell">
       {/* Notification */}
       {notification.show && (
-        <div className={`notification ${notification.type}`}>
+        <div className={`notification ${notification.type}`} role={notification.type === 'error' ? 'alert' : 'status'} aria-live="polite">
           <span className="notification-icon">
             {notification.type === 'success' ? '✓' : '✕'}
           </span>
@@ -146,8 +145,8 @@ function Contact() {
 
       <div className="contact-container">
         <div className="contact-header scroll-animate">
+          <p className="page-eyebrow">{t.contact.eyebrow}</p>
           <h1 className="page-title">{t.contact.title}</h1>
-          <div className="title-underline"></div>
           <p className="contact-subtitle">
             {t.contact.subtitle}
           </p>
@@ -155,9 +154,9 @@ function Contact() {
 
         <div className="contact-content">
           <div className="contact-info">
+            <p className="contact-intro">{t.contact.intro}</p>
             <div className="info-card scroll-animate scroll-delay-1">
-              <CardMatrixBackground />
-              <div className="info-icon">📧</div>
+              <span className="info-index">01</span>
               <h3>{t.contact.info.email}</h3>
               <p>
                 <a href="mailto:ulrichbab09@gmail.com" className="email-link">
@@ -167,21 +166,18 @@ function Contact() {
             </div>
 
             <div className="info-card scroll-animate scroll-delay-2">
-              <CardMatrixBackground />
-              <div className="info-icon">📱</div>
+              <span className="info-index">02</span>
               <h3>{t.contact.info.phone}</h3>
               <p>+33 6 35 67 02 68</p>
             </div>
 
             <div className="info-card scroll-animate scroll-delay-3">
-              <CardMatrixBackground />
-              <div className="info-icon">📍</div>
+              <span className="info-index">03</span>
               <h3>{t.contact.info.location}</h3>
               <p>Toulouse, France</p>
             </div>
 
             <div className="social-links scroll-animate scroll-delay-4">
-              <CardMatrixBackground />
               <h3>{t.contact.info.socials}</h3>
               <div className="social-icons">
                 <a href="https://github.com/Rich9153" className="social-icon" target="_blank" rel="noopener noreferrer">
@@ -195,7 +191,7 @@ function Contact() {
           </div>
 
           <form className="contact-form scroll-animate scroll-delay-2" onSubmit={handleSubmit}>
-            <CardMatrixBackground />
+            <div className="form-heading"><span>{t.contact.formLabel}</span><strong>{t.contact.formTitle}</strong></div>
             <div className="contact-honeypot" aria-hidden="true">
               <label htmlFor="website">{t.contact.form.website}</label>
               <input

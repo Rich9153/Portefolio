@@ -3,22 +3,22 @@ import { motion } from 'framer-motion';
 const pageVariants = {
   initial: {
     opacity: 0,
-    x: 100,
+    y: 14,
   },
   animate: {
     opacity: 1,
-    x: 0,
+    y: 0,
   },
   exit: {
     opacity: 0,
-    x: -100,
+    y: -8,
   },
 };
 
 const pageTransition = {
   type: 'tween',
-  ease: 'anticipate',
-  duration: 0.5,
+  ease: [0.22, 1, 0.36, 1],
+  duration: 0.38,
 };
 
 function PageTransition({ children }) {

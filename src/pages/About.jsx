@@ -1,6 +1,5 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import { useScrollAnimationMultiple } from '../hooks/useScrollAnimation';
-import CardMatrixBackground from '../components/CardMatrixBackground';
 import './About.css';
 
 function About() {
@@ -10,16 +9,18 @@ function About() {
   useScrollAnimationMultiple('.scroll-animate');
 
   return (
-    <div className="about">
+    <div className="about page-shell">
       <div className="about-container">
         <div className="about-header scroll-animate">
+          <p className="page-eyebrow">{t.about.eyebrow}</p>
           <h1 className="page-title">{t.about.title}</h1>
-          <div className="title-underline"></div>
+          <p className="page-lead">{t.about.lead}</p>
         </div>
 
         <div className="about-content">
           <div className="about-image-section scroll-animate">
             <img src="/images/babbelimage.jpeg" alt={t.about.profileAlt} className="profile-image" />
+            <div className="portrait-caption"><span>{t.about.basedIn}</span><strong>Toulouse, France</strong></div>
           </div>
 
           <div className="about-text">
@@ -31,7 +32,6 @@ function About() {
             <h2 className="section-subtitle scroll-animate">{t.about.skills}</h2>
             <div className="skills-grid">
               <div className="skill-category scroll-animate scroll-delay-1">
-                <CardMatrixBackground />
                 <h3>{t.about.skillCategories.languages}</h3>
                 <ul>
                   <li>Python</li>
@@ -43,7 +43,6 @@ function About() {
                 </ul>
               </div>
               <div className="skill-category scroll-animate scroll-delay-2">
-                <CardMatrixBackground />
                 <h3>{t.about.skillCategories.frontend}</h3>
                 <ul>
                   <li>React / Vue.js</li>
@@ -52,7 +51,6 @@ function About() {
                 </ul>
               </div>
               <div className="skill-category scroll-animate scroll-delay-3">
-                <CardMatrixBackground />
                 <h3>{t.about.skillCategories.backend}</h3>
                 <ul>
                   <li>Node.js</li>
@@ -61,7 +59,6 @@ function About() {
                 </ul>
               </div>
               <div className="skill-category scroll-animate scroll-delay-4">
-                <CardMatrixBackground />
                 <h3>{t.about.skillCategories.database}</h3>
                 <ul>
                   <li>MariaDB</li>
@@ -69,7 +66,6 @@ function About() {
                 </ul>
               </div>
               <div className="skill-category scroll-animate scroll-delay-5">
-                <CardMatrixBackground />
                 <h3>{t.about.skillCategories.tools}</h3>
                 <ul>
                   <li>Git / GitHub</li>

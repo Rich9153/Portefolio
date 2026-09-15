@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 // import { useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useScrollAnimationMultiple } from '../hooks/useScrollAnimation';
-import CardMatrixBackground from '../components/CardMatrixBackground';
 import './Home.css';
 
 function Home() {
@@ -28,61 +27,63 @@ function Home() {
   ============== FIN ANCIEN CODE VIDÉO COMMENTÉ ============== */
 
   return (
-    <div className="home">
-      <div className="hero-section">
+    <div className="home page-shell">
+      <section className="hero-section">
         <div className="hero-content scroll-animate">
+          <p className="hero-eyebrow">{t.home.eyebrow}</p>
+          <div className="availability-pill">
+            <span className="availability-dot" aria-hidden="true" />
+            {t.home.availability}
+          </div>
           <h1 className="hero-title">
-            {t.home.title} <span className="highlight">{t.home.titleHighlight}</span>
+            {t.home.title}<br /><span className="highlight">{t.home.titleHighlight}</span>
           </h1>
-          <p className="hero-subtitle">
-            {t.home.subtitle}
-          </p>
+          <p className="hero-subtitle">{t.home.subtitle}</p>
+          <p className="hero-intro">{t.home.intro}</p>
           <div className="hero-buttons">
             <Link to="/projects" className="btn btn-primary">
-              {t.home.viewProjects}
+              {t.home.viewProjects} <span aria-hidden="true">↗</span>
             </Link>
             <Link to="/contact" className="btn btn-secondary">
               {t.home.contactMe}
             </Link>
           </div>
+          <div className="hero-stack" aria-label={t.home.stackLabel}>
+            <span className="stack-label">{t.home.stackLabel}</span>
+            <div className="stack-list">
+              {t.home.stack.map((technology) => <span key={technology}>{technology}</span>)}
+            </div>
+          </div>
         </div>
-        <div className="hero-animation">
-          <div className="floating-bubble scroll-animate">
+        <aside className="hero-profile scroll-animate scroll-delay-1">
+          <div className="portrait-frame">
             <img src="/images/babbelimage.jpeg" alt={t.home.profileAlt} className="profile-image" />
           </div>
+          <div className="profile-signal signal-one"><span>{t.home.currentLabel}</span><strong>{t.home.currentValue}</strong></div>
+          <div className="profile-signal signal-two"><span>{t.home.focusLabel}</span><strong>{t.home.focusValue}</strong></div>
+        </aside>
+      </section>
 
-          {/* ============== ANCIEN CODE VIDÉO COMMENTÉ ==============
-          <video
-            ref={videoRef}
-            src="/videos/profile-video.mp4"
-            className="hero-video"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            loop
-            muted
-            playsInline
-          />
-          ============== FIN ANCIEN CODE VIDÉO COMMENTÉ ============== */}
-        </div>
-      </div>
-
-      <div className="quick-links">
+      <section className="quick-links" aria-label="Portfolio">
         <Link to="/about" className="quick-link-card scroll-animate scroll-delay-1">
-          <CardMatrixBackground />
+          <span className="card-index">01</span>
           <h3>{t.home.aboutCard.title}</h3>
           <p>{t.home.aboutCard.description}</p>
+          <span className="card-arrow" aria-hidden="true">↗</span>
         </Link>
         <Link to="/education" className="quick-link-card scroll-animate scroll-delay-2">
-          <CardMatrixBackground />
+          <span className="card-index">02</span>
           <h3>{t.home.educationCard.title}</h3>
           <p>{t.home.educationCard.description}</p>
+          <span className="card-arrow" aria-hidden="true">↗</span>
         </Link>
         <Link to="/projects" className="quick-link-card scroll-animate scroll-delay-3">
-          <CardMatrixBackground />
+          <span className="card-index">03</span>
           <h3>{t.home.projectsCard.title}</h3>
           <p>{t.home.projectsCard.description}</p>
+          <span className="card-arrow" aria-hidden="true">↗</span>
         </Link>
-      </div>
+      </section>
     </div>
   );
 }

@@ -4,7 +4,6 @@ import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 import Navbar from './components/Navbar';
 import PageTransition from './components/PageTransition';
 import SmoothScroll from './components/SmoothScroll';
-import MatrixBackground from './components/MatrixBackground';
 import Home from './pages/Home';
 import About from './pages/About';
 import Education from './pages/Education';
@@ -18,7 +17,6 @@ function AnimatedRoutes() {
 
   return (
     <>
-      <MatrixBackground />
       <Navbar />
       <main className="main-content">
         <AnimatePresence mode="wait">
@@ -32,7 +30,17 @@ function AnimatedRoutes() {
         </AnimatePresence>
       </main>
       <footer className="footer">
-        <p>&copy; {new Date().getFullYear()} {t.footer.rights}</p>
+        <div className="footer-inner">
+          <div>
+            <strong>Ulrich Babbel Mbonihankuye</strong>
+            <p>{t.footer.tagline}</p>
+          </div>
+          <div className="footer-links">
+            <a href="https://github.com/Rich9153" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/ulrich-babbel-mbonihankuye-798a752b1/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          </div>
+          <p className="footer-copy">&copy; {new Date().getFullYear()} {t.footer.rights}</p>
+        </div>
       </footer>
     </>
   );

@@ -34,7 +34,9 @@ export const LanguageProvider = ({ children }) => {
         education: 'Parcours',
         projects: 'Projets',
         contact: 'Contact',
-        changeLanguage: 'Passer le site en anglais'
+        changeLanguage: 'Passer le site en anglais',
+        openMenu: 'Ouvrir le menu',
+        closeMenu: 'Fermer le menu'
       },
       // Home page
       home: {
@@ -42,6 +44,15 @@ export const LanguageProvider = ({ children }) => {
         titleHighlight: 'Mbonihankuye',
         subtitle: 'Étudiant en Master ICE-LD · Développement logiciel, web et data',
         profileAlt: 'Portrait d’Ulrich Babbel Mbonihankuye',
+        eyebrow: 'Ingénierie logicielle · Toulouse',
+        availability: 'Disponible pour une alternance et des collaborations',
+        intro: 'Je transforme des besoins complexes en expériences numériques fiables, lisibles et utiles — du modèle de données jusqu’à l’interface.',
+        currentLabel: 'En ce moment',
+        currentValue: 'Master ICE-LD',
+        focusLabel: 'Ce que je construis',
+        focusValue: 'Produits web & data',
+        stackLabel: 'Technologies principales',
+        stack: ['React', 'TypeScript', 'Python', 'Node.js', 'PostgreSQL'],
         viewProjects: 'Voir mes projets',
         contactMe: 'Me contacter',
         aboutCard: {
@@ -59,6 +70,9 @@ export const LanguageProvider = ({ children }) => {
       },
       // About page
       about: {
+        eyebrow: 'Profil & compétences',
+        lead: 'Une approche complète du produit numérique, à la rencontre du logiciel, des données et des usages.',
+        basedIn: 'Basé à',
         title: 'À propos de moi',
         whoAmI: 'Qui suis-je ?',
         whoAmIText: 'Originaire du Burundi, né au Bénin et installé en France depuis 2022, je suis étudiant en Master ICE-LD (Ingénierie Continue des Écosystèmes Logiciels et Données) à l\'Université Toulouse Jean Jaurès. Je conçois des applications web et logicielles en portant une attention particulière à la qualité du code, aux données et à l\'expérience utilisateur.',
@@ -76,6 +90,8 @@ export const LanguageProvider = ({ children }) => {
       },
       // Education page
       education: {
+        eyebrow: 'Formation',
+        lead: 'Un parcours construit entre informatique, mathématiques appliquées, données et ingénierie logicielle.',
         title: 'Parcours Académique',
         achievements: 'Points forts :',
         certifications: 'Certifications & Formations',
@@ -124,6 +140,7 @@ export const LanguageProvider = ({ children }) => {
       },
       // Projects page
       projects: {
+        eyebrow: 'Sélection de travaux',
         title: 'Mes Projets',
         subtitle: 'Découvrez mes réalisations académiques, personnelles et professionnelles',
         openProject: 'Découvrir le projet',
@@ -137,36 +154,48 @@ export const LanguageProvider = ({ children }) => {
             {
               title: 'Projet Réseaux',
               url: 'https://github.com/Rich9153/Projet_Reseaux',
-              description: 'Projet académique en langage C autour de la programmation réseau.'
+              description: 'Projet académique en langage C autour de la programmation réseau.',
+              kind: 'Systèmes',
+              technologies: ['C', 'Réseaux']
             },
             {
               title: 'Outils agiles — Master 1',
               url: 'https://github.com/Rich9153/cours-M1-agile-tools',
-              description: 'Travaux pratiques Python autour des méthodes et outils agiles.'
+              description: 'Travaux pratiques Python autour des méthodes et outils agiles.',
+              kind: 'Ingénierie',
+              technologies: ['Python', 'Agile']
             }
           ],
           personal: [
             {
               title: 'Mon Blog',
               url: 'https://github.com/Rich9153/monblog',
-              description: 'Blog moderne réalisé avec Next.js.'
+              description: 'Blog moderne réalisé avec Next.js.',
+              kind: 'Web',
+              technologies: ['Next.js', 'React']
             },
             {
               title: 'Projet humanitaire',
               url: 'https://github.com/Rich9153/Projet-humanitaire',
-              description: 'Projet web dédié à une initiative humanitaire.'
+              description: 'Projet web dédié à une initiative humanitaire.',
+              kind: 'Impact',
+              technologies: ['Web', 'UX']
             },
             {
               title: 'Portfolio',
               url: 'https://github.com/Rich9153/Portefolio',
-              description: 'Ce portfolio bilingue construit avec React et Vite.'
+              description: 'Ce portfolio bilingue construit avec React et Vite.',
+              kind: 'Identité',
+              technologies: ['React', 'Vite']
             }
           ],
           company: [
             {
               title: 'GEM e-Mobility',
               url: 'https://gem-emobility.com/',
-              description: 'Plateforme présentant le déploiement de la première station de mobilité électrique au Burundi.'
+              description: 'Plateforme présentant le déploiement de la première station de mobilité électrique au Burundi.',
+              kind: 'Mobilité',
+              technologies: ['JavaScript', 'Web']
             }
           ]
         },
@@ -187,6 +216,10 @@ export const LanguageProvider = ({ children }) => {
       },
       // Contact page
       contact: {
+        eyebrow: 'Parlons de votre projet',
+        intro: 'Une opportunité, une collaboration ou simplement une idée à partager ? Écrivez-moi, je réponds dès que possible.',
+        formLabel: 'Votre message',
+        formTitle: 'Commençons une conversation.',
         title: 'Contactez-moi',
         subtitle: 'N\'hésitez pas à me contacter pour toute opportunité ou question',
         form: {
@@ -214,7 +247,8 @@ export const LanguageProvider = ({ children }) => {
       },
       // Footer
       footer: {
-        rights: 'Mon Portfolio. Tous droits réservés.'
+        rights: 'Portfolio. Tous droits réservés.',
+        tagline: 'Ingénierie logicielle · Web · Data'
       }
     },
     en: {
@@ -225,7 +259,9 @@ export const LanguageProvider = ({ children }) => {
         education: 'Education',
         projects: 'Projects',
         contact: 'Contact',
-        changeLanguage: 'Switch the website to French'
+        changeLanguage: 'Switch the website to French',
+        openMenu: 'Open menu',
+        closeMenu: 'Close menu'
       },
       // Home page
       home: {
@@ -233,6 +269,15 @@ export const LanguageProvider = ({ children }) => {
         titleHighlight: 'Mbonihankuye',
         subtitle: 'ICE-LD Master’s student · Software, web and data development',
         profileAlt: 'Portrait of Ulrich Babbel Mbonihankuye',
+        eyebrow: 'Software engineering · Toulouse',
+        availability: 'Open to work-study opportunities and collaborations',
+        intro: 'I turn complex requirements into reliable, clear and useful digital experiences — from the data model to the interface.',
+        currentLabel: 'Currently',
+        currentValue: 'ICE-LD Master’s',
+        focusLabel: 'What I build',
+        focusValue: 'Web & data products',
+        stackLabel: 'Core technologies',
+        stack: ['React', 'TypeScript', 'Python', 'Node.js', 'PostgreSQL'],
         viewProjects: 'View my projects',
         contactMe: 'Contact me',
         aboutCard: {
@@ -250,6 +295,9 @@ export const LanguageProvider = ({ children }) => {
       },
       // About page
       about: {
+        eyebrow: 'Profile & skills',
+        lead: 'A complete approach to digital products, at the intersection of software, data and people.',
+        basedIn: 'Based in',
         title: 'About Me',
         whoAmI: 'Who am I?',
         whoAmIText: 'Originally from Burundi, born in Benin and living in France since 2022, I am an ICE-LD Master’s student (Continuous Engineering of Software and Data Ecosystems) at Toulouse Jean Jaurès University. I build web and software applications with a strong focus on code quality, data and user experience.',
@@ -267,6 +315,8 @@ export const LanguageProvider = ({ children }) => {
       },
       // Education page
       education: {
+        eyebrow: 'Education',
+        lead: 'A multidisciplinary path spanning computer science, applied mathematics, data and software engineering.',
         title: 'Academic Background',
         achievements: 'Highlights:',
         certifications: 'Certifications & Training',
@@ -315,6 +365,7 @@ export const LanguageProvider = ({ children }) => {
       },
       // Projects page
       projects: {
+        eyebrow: 'Selected work',
         title: 'My Projects',
         subtitle: 'Discover my academic, personal and professional achievements',
         openProject: 'View project',
@@ -328,36 +379,48 @@ export const LanguageProvider = ({ children }) => {
             {
               title: 'Network Programming Project',
               url: 'https://github.com/Rich9153/Projet_Reseaux',
-              description: 'An academic C project focused on network programming.'
+              description: 'An academic C project focused on network programming.',
+              kind: 'Systems',
+              technologies: ['C', 'Networking']
             },
             {
               title: 'Agile Tools — Master’s Year 1',
               url: 'https://github.com/Rich9153/cours-M1-agile-tools',
-              description: 'Python coursework exploring agile methods and development tools.'
+              description: 'Python coursework exploring agile methods and development tools.',
+              kind: 'Engineering',
+              technologies: ['Python', 'Agile']
             }
           ],
           personal: [
             {
               title: 'My Blog',
               url: 'https://github.com/Rich9153/monblog',
-              description: 'A modern blog built with Next.js.'
+              description: 'A modern blog built with Next.js.',
+              kind: 'Web',
+              technologies: ['Next.js', 'React']
             },
             {
               title: 'Humanitarian Project',
               url: 'https://github.com/Rich9153/Projet-humanitaire',
-              description: 'A web project supporting a humanitarian initiative.'
+              description: 'A web project supporting a humanitarian initiative.',
+              kind: 'Impact',
+              technologies: ['Web', 'UX']
             },
             {
               title: 'Portfolio',
               url: 'https://github.com/Rich9153/Portefolio',
-              description: 'This bilingual portfolio built with React and Vite.'
+              description: 'This bilingual portfolio built with React and Vite.',
+              kind: 'Identity',
+              technologies: ['React', 'Vite']
             }
           ],
           company: [
             {
               title: 'GEM e-Mobility',
               url: 'https://gem-emobility.com/',
-              description: 'A platform showcasing the deployment of Burundi’s first electric mobility station.'
+              description: 'A platform showcasing the deployment of Burundi’s first electric mobility station.',
+              kind: 'Mobility',
+              technologies: ['JavaScript', 'Web']
             }
           ]
         },
@@ -378,6 +441,10 @@ export const LanguageProvider = ({ children }) => {
       },
       // Contact page
       contact: {
+        eyebrow: 'Let’s work together',
+        intro: 'An opportunity, a collaboration or simply an idea to share? Send me a message and I will get back to you as soon as possible.',
+        formLabel: 'Your message',
+        formTitle: 'Let’s start a conversation.',
         title: 'Contact Me',
         subtitle: 'Feel free to contact me for any opportunity or question',
         form: {
@@ -405,7 +472,8 @@ export const LanguageProvider = ({ children }) => {
       },
       // Footer
       footer: {
-        rights: 'My Portfolio. All rights reserved.'
+        rights: 'Portfolio. All rights reserved.',
+        tagline: 'Software engineering · Web · Data'
       }
     }
   };
