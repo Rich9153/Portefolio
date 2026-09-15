@@ -55,6 +55,7 @@ export const LanguageProvider = ({ children }) => {
         stack: ['React', 'TypeScript', 'Python', 'Node.js', 'PostgreSQL'],
         viewProjects: 'Voir mes projets',
         contactMe: 'Me contacter',
+        downloadCV: 'Télécharger mon CV',
         aboutCard: {
           title: 'À propos',
           description: 'Découvrez qui je suis et mon parcours'
@@ -248,7 +249,8 @@ export const LanguageProvider = ({ children }) => {
       // Footer
       footer: {
         rights: 'Portfolio. Tous droits réservés.',
-        tagline: 'Ingénierie logicielle · Web · Data'
+        tagline: 'Ingénierie logicielle · Web · Data',
+        downloadCV: 'Télécharger le CV'
       }
     },
     en: {
@@ -280,6 +282,7 @@ export const LanguageProvider = ({ children }) => {
         stack: ['React', 'TypeScript', 'Python', 'Node.js', 'PostgreSQL'],
         viewProjects: 'View my projects',
         contactMe: 'Contact me',
+        downloadCV: 'Download my résumé',
         aboutCard: {
           title: 'About',
           description: 'Discover who I am and my journey'
@@ -473,7 +476,8 @@ export const LanguageProvider = ({ children }) => {
       // Footer
       footer: {
         rights: 'Portfolio. All rights reserved.',
-        tagline: 'Software engineering · Web · Data'
+        tagline: 'Software engineering · Web · Data',
+        downloadCV: 'Download résumé'
       }
     }
   };

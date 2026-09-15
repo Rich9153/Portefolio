@@ -36,6 +36,7 @@ function AnimatedRoutes() {
             <p>{t.footer.tagline}</p>
           </div>
           <div className="footer-links">
+            <a href="/CV-Ulrich-Babbel-Mbonihankuye.pdf" download>{t.footer.downloadCV} ↓</a>
             <a href="https://github.com/Rich9153" target="_blank" rel="noreferrer">GitHub ↗</a>
             <a href="https://www.linkedin.com/in/ulrich-babbel-mbonihankuye-798a752b1/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
           </div>

@@ -47,6 +47,13 @@ function Home() {
             <Link to="/contact" className="btn btn-secondary">
               {t.home.contactMe}
             </Link>
+            <a
+              href="/CV-Ulrich-Babbel-Mbonihankuye.pdf"
+              className="btn btn-cv"
+              download
+            >
+              {t.home.downloadCV} <span aria-hidden="true">↓</span>
+            </a>
           </div>
           <div className="hero-stack" aria-label={t.home.stackLabel}>
             <span className="stack-label">{t.home.stackLabel}</span>

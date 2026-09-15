@@ -14,6 +14,8 @@
 .btn-primary:hover { background: var(--accent-hover); color: #0b130f; transform: translateY(-2px); }
 .btn-secondary { border: 1px solid var(--border); color: var(--text-primary); background: rgba(255,255,255,.025); }
 .btn-secondary:hover { border-color: var(--border-strong); color: var(--accent-primary); transform: translateY(-2px); }
+.btn-cv { border: 1px solid rgba(94,234,212,.35); color: var(--accent-secondary); background: rgba(94,234,212,.06); }
+.btn-cv:hover { border-color: var(--accent-secondary); color: var(--text-primary); transform: translateY(-2px); }
 .hero-stack { display: grid; gap: 12px; }
 .stack-list { display: flex; flex-wrap: wrap; gap: 8px; }
 .stack-list span { padding: 7px 10px; border: 1px solid var(--border); border-radius: 8px; color: var(--text-secondary); font-size: .78rem; }
