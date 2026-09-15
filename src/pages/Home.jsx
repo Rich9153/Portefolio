@@ -64,7 +64,7 @@ function Home() {
         </div>
         <aside className="hero-profile scroll-animate scroll-delay-1">
           <div className="portrait-frame">
-            <img src="/images/babbelimage.jpeg" alt={t.home.profileAlt} className="profile-image" />
+            <img src="/images/portrait-ulrich.png" alt={t.home.profileAlt} className="profile-image" />
           </div>
           <div className="profile-signal signal-one"><span>{t.home.currentLabel}</span><strong>{t.home.currentValue}</strong></div>
           <div className="profile-signal signal-two"><span>{t.home.focusLabel}</span><strong>{t.home.focusValue}</strong></div>

@@ -1,5 +1,7 @@
 from pathlib import Path
+from io import BytesIO
 
+from PIL import Image
 from reportlab.lib.colors import HexColor
 from reportlab.lib.enums import TA_LEFT
 from reportlab.lib.pagesizes import A4
@@ -14,7 +16,7 @@ from reportlab.platypus import Paragraph
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "public" / "CV-Ulrich-Babbel-Mbonihankuye.pdf"
-PHOTO = ROOT / "public" / "images" / "babbelimage.jpeg"
+PHOTO = ROOT / "public" / "images" / "portrait-ulrich.png"
 
 INK = HexColor("#082f28")
 LIME = HexColor("#bdf26f")
@@ -78,7 +80,11 @@ def item(pdf, title, meta, description, x, y, width, gap=4.2 * mm):
 
 
 def draw_photo(pdf, cx, cy, radius):
-    image = ImageReader(str(PHOTO))
+    image_buffer = BytesIO()
+    with Image.open(PHOTO) as source_image:
+        source_image.convert("RGB").save(image_buffer, format="JPEG", quality=88, optimize=True)
+    image_buffer.seek(0)
+    image = ImageReader(image_buffer)
     image_width, image_height = image.getSize()
     diameter = radius * 2
     scale = max(diameter / image_width, diameter / image_height)

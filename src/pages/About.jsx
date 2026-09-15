@@ -19,7 +19,7 @@ function About() {
 
         <div className="about-content">
           <div className="about-image-section scroll-animate">
-            <img src="/images/babbelimage.jpeg" alt={t.about.profileAlt} className="profile-image" />
+            <img src="/images/portrait-ulrich.png" alt={t.about.profileAlt} className="profile-image" />
             <div className="portrait-caption"><span>{t.about.basedIn}</span><strong>Toulouse, France</strong></div>
           </div>
 
