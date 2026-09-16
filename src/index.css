@@ -4,21 +4,21 @@
   font-weight: 400;
 
   /* Dark Mode Color Palette */
-  --bg-primary: #07100e;
-  --bg-secondary: #0d1916;
-  --bg-tertiary: #13221e;
-  --surface: rgba(18, 34, 29, 0.78);
-  --surface-strong: #14251f;
-  --border: rgba(220, 255, 237, 0.13);
-  --border-strong: rgba(189, 242, 111, 0.42);
+  --bg-primary: #10070a;
+  --bg-secondary: #190c11;
+  --bg-tertiary: #231017;
+  --surface: rgba(43, 18, 27, 0.78);
+  --surface-strong: #2b151d;
+  --border: rgba(255, 224, 233, 0.13);
+  --border-strong: rgba(181, 43, 82, 0.5);
 
   --text-primary: #f3f7f1;
-  --text-secondary: #b5c2bb;
-  --text-muted: #77877f;
+  --text-secondary: #cab9bf;
+  --text-muted: #907780;
 
-  --accent-primary: #bdf26f;
+  --accent-primary: #b52b52;
   --accent-secondary: #5eead4;
-  --accent-hover: #d1fa8b;
+  --accent-hover: #d24b70;
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
   --radius-lg: 28px;
   --radius-md: 18px;
@@ -67,7 +67,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: radial-gradient(circle at 88% 8%, rgba(94, 234, 212, 0.1), transparent 28rem), radial-gradient(circle at 12% 34%, rgba(189, 242, 111, 0.07), transparent 26rem), var(--bg-primary);
+  background: radial-gradient(circle at 88% 8%, rgba(94, 234, 212, 0.08), transparent 28rem), radial-gradient(circle at 12% 34%, rgba(181, 43, 82, 0.14), transparent 26rem), var(--bg-primary);
   overflow-x: hidden;
 }
 
@@ -144,7 +144,7 @@ button:focus-visible {
 
 /* Selection text style */
 ::selection {
-  background-color: rgba(189, 242, 111, 0.3);
+  background-color: rgba(181, 43, 82, 0.34);
   color: var(--text-primary);
 }
 
