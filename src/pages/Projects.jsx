@@ -1,15 +1,51 @@
+import { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useScrollAnimationMultiple } from '../hooks/useScrollAnimation';
 import './Projects.css';
 
-function ProjectGallery({ project }) {
-  const images = project.images || [];
+function ProjectGallery({ project, labels }) {
+  const [activeView, setActiveView] = useState(0);
+  const image = project.galleryImage;
+  const viewCount = 4;
 
-  if (images.length === 0) return null;
+  if (!image) return null;
+
+  const showPrevious = () => setActiveView((current) => (current - 1 + viewCount) % viewCount);
+  const showNext = () => setActiveView((current) => (current + 1) % viewCount);
 
   return (
-    <div className="project-gallery project-gallery-empty" aria-hidden="true">
-      <div className="project-image-stage project-image-placeholder" />
+    <div className="project-gallery">
+      <div className="project-image-stage">
+        <img
+          src={image}
+          className={activeView === 0 ? 'gallery-overview-image' : 'gallery-panel-image'}
+          style={activeView === 0 ? undefined : { '--panel-offset': `-${(activeView - 1) * 33.333}%` }}
+          alt={`${project.title} - ${labels.image} ${activeView + 1}`}
+          loading="lazy"
+        />
+        <div className="gallery-navigation">
+          <button type="button" onClick={showPrevious} aria-label={labels.previousImage}>←</button>
+          <span>{activeView + 1} / {viewCount}</span>
+          <button type="button" onClick={showNext} aria-label={labels.nextImage}>→</button>
+        </div>
+      </div>
+      <div className="project-thumbnails" role="group" aria-label={labels.gallery}>
+        {[0, 1, 2, 3].map((view) => (
+          <button
+            type="button"
+            key={view}
+            className={view === activeView ? 'active' : ''}
+            onClick={() => setActiveView(view)}
+            aria-label={`${labels.showImage} ${view + 1}`}
+            aria-pressed={view === activeView}
+          >
+            <span
+              className={view === 0 ? 'thumbnail-overview' : 'thumbnail-panel'}
+              style={{ backgroundImage: `url(${image})`, '--thumbnail-position': `${(view - 1) * 50}%` }}
+            />
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
@@ -40,9 +76,9 @@ function Projects() {
                 {projectLinks[category].map((project, index) => (
                   <article
                     key={project.title}
-                    className={`project-link-card ${project.images?.length ? 'has-images' : ''} scroll-animate scroll-delay-${(index % 5) + 1}`}
+                    className={`project-link-card ${project.galleryImage ? 'has-images' : ''} scroll-animate scroll-delay-${(index % 5) + 1}`}
                   >
-                    <ProjectGallery project={project} />
+                    <ProjectGallery project={project} labels={t.projects.gallery} />
                     <div className="project-card-top"><span className="project-number">0{index + 1}</span><span className="project-kind">{project.kind}</span></div>
                     <h3 className="project-link-title">{project.title}</h3>
                     <p className="project-link-description">{project.description}</p>

@@ -165,35 +165,37 @@ export const LanguageProvider = ({ children }) => {
               description: 'Quiz musical développé en cours et inspiré du format « Question pour un champion ». L’application propose une série de questions à choix multiples, valide les réponses et fait progresser le joueur dans une expérience interactive. Ce projet m’a permis de consolider la structuration d’une interface web et la logique applicative en JavaScript.',
               kind: 'Application web',
               technologies: ['HTML5', 'CSS3', 'JavaScript'],
-              images: ['/images/trivia-1.png', '/images/trivia-2.png', '/images/trivia-3.png']
+              galleryImage: '/images/generated/trivia-triptych.png'
             },
             {
               title: 'Organisation d’une fête universitaire',
               description: 'Application de bureau conçue en cours pour coordonner les contributions des participants à un événement universitaire. L’organisateur peut consulter les produits annoncés et envoyer des rappels afin de mieux répartir les apports et d’éviter les manques ou les doublons.',
               kind: 'Application desktop',
               technologies: ['Python', 'Tkinter'],
-              images: ['/images/fete-1.png', '/images/fete-2.png', '/images/fete-3.png']
+              galleryImage: '/images/generated/party-triptych.png'
             },
             {
               title: 'Campus Explorer',
               description: 'Jeu collaboratif développé par une équipe de cinq étudiants pour faire découvrir le campus sous la forme d’une chasse aux lieux. Les joueurs identifient les endroits photographiés à partir d’indices, tandis que la plateforme permet aussi de proposer de nouveaux lieux et de se connecter avec les identifiants universitaires.',
               kind: 'Projet d’équipe',
               technologies: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MariaDB', 'Bootstrap'],
-              images: ['/images/campus-1.png', '/images/campus-2.png', '/images/campus-3.png', '/images/campus-4.png']
+              galleryImage: '/images/generated/campus-triptych.png'
             },
             {
               title: 'Projet Réseaux',
               url: 'https://github.com/Rich9153/Projet_Reseaux',
               description: 'Projet académique en langage C autour de la programmation réseau.',
               kind: 'Systèmes',
-              technologies: ['C', 'Réseaux']
+              technologies: ['C', 'Réseaux'],
+              galleryImage: '/images/generated/network-triptych.png'
             },
             {
               title: 'Outils agiles — Master 1',
               url: 'https://github.com/Rich9153/cours-M1-agile-tools',
               description: 'Travaux pratiques Python autour des méthodes et outils agiles.',
               kind: 'Ingénierie',
-              technologies: ['Python', 'Agile']
+              technologies: ['Python', 'Agile'],
+              galleryImage: '/images/generated/agile-triptych.png'
             }
           ],
           personal: [
@@ -202,21 +204,24 @@ export const LanguageProvider = ({ children }) => {
               url: 'https://github.com/Rich9153/monblog',
               description: 'Blog moderne réalisé avec Next.js.',
               kind: 'Web',
-              technologies: ['Next.js', 'React']
+              technologies: ['Next.js', 'React'],
+              galleryImage: '/images/generated/blog-triptych.png'
             },
             {
               title: 'Projet humanitaire',
               url: 'https://github.com/Rich9153/Projet-humanitaire',
               description: 'Projet web dédié à une initiative humanitaire.',
               kind: 'Impact',
-              technologies: ['Web', 'UX']
+              technologies: ['Web', 'UX'],
+              galleryImage: '/images/generated/humanitarian-triptych.png'
             },
             {
               title: 'Portfolio',
               url: 'https://github.com/Rich9153/Portefolio',
               description: 'Ce portfolio bilingue construit avec React et Vite.',
               kind: 'Identité',
-              technologies: ['React', 'Vite']
+              technologies: ['React', 'Vite'],
+              galleryImage: '/images/generated/portfolio-triptych.png'
             }
           ],
           company: [
@@ -226,14 +231,15 @@ export const LanguageProvider = ({ children }) => {
               kind: 'Recrutement',
               label: 'Projet de stage',
               technologies: ['React', 'Express.js', 'Bootstrap', 'Nodemailer', 'Bcrypt'],
-              images: ['/images/ATS-1.png', '/images/ATS-2.png', '/images/ATS-3.png']
+              galleryImage: '/images/generated/ats-triptych.png'
             },
             {
               title: 'GEM e-Mobility',
               url: 'https://gem-emobility.com/',
               description: 'Plateforme présentant le déploiement de la première station de mobilité électrique au Burundi.',
               kind: 'Mobilité',
-              technologies: ['JavaScript', 'Web']
+              technologies: ['JavaScript', 'Web'],
+              galleryImage: '/images/generated/gem-triptych.png'
             }
           ]
         },
@@ -429,35 +435,37 @@ export const LanguageProvider = ({ children }) => {
               description: 'A music quiz developed as coursework and inspired by the “Question pour un champion” format. The application presents a sequence of multiple-choice questions, validates answers and guides the player through an interactive experience. This project strengthened my understanding of web interface structure and application logic in JavaScript.',
               kind: 'Web application',
               technologies: ['HTML5', 'CSS3', 'JavaScript'],
-              images: ['/images/trivia-1.png', '/images/trivia-2.png', '/images/trivia-3.png']
+              galleryImage: '/images/generated/trivia-triptych.png'
             },
             {
               title: 'University Party Planner',
               description: 'A desktop application designed as coursework to coordinate participant contributions to a university event. The organiser can review the products that people plan to bring and send reminders to improve distribution while avoiding shortages and duplicates.',
               kind: 'Desktop application',
               technologies: ['Python', 'Tkinter'],
-              images: ['/images/fete-1.png', '/images/fete-2.png', '/images/fete-3.png']
+              galleryImage: '/images/generated/party-triptych.png'
             },
             {
               title: 'Campus Explorer',
               description: 'A collaborative game built by a five-student team to help people discover the campus through a location hunt. Players identify photographed places from clues, while the platform also supports new location suggestions and sign-in with university credentials.',
               kind: 'Team project',
               technologies: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MariaDB', 'Bootstrap'],
-              images: ['/images/campus-1.png', '/images/campus-2.png', '/images/campus-3.png', '/images/campus-4.png']
+              galleryImage: '/images/generated/campus-triptych.png'
             },
             {
               title: 'Network Programming Project',
               url: 'https://github.com/Rich9153/Projet_Reseaux',
               description: 'An academic C project focused on network programming.',
               kind: 'Systems',
-              technologies: ['C', 'Networking']
+              technologies: ['C', 'Networking'],
+              galleryImage: '/images/generated/network-triptych.png'
             },
             {
               title: 'Agile Tools — Master’s Year 1',
               url: 'https://github.com/Rich9153/cours-M1-agile-tools',
               description: 'Python coursework exploring agile methods and development tools.',
               kind: 'Engineering',
-              technologies: ['Python', 'Agile']
+              technologies: ['Python', 'Agile'],
+              galleryImage: '/images/generated/agile-triptych.png'
             }
           ],
           personal: [
@@ -466,21 +474,24 @@ export const LanguageProvider = ({ children }) => {
               url: 'https://github.com/Rich9153/monblog',
               description: 'A modern blog built with Next.js.',
               kind: 'Web',
-              technologies: ['Next.js', 'React']
+              technologies: ['Next.js', 'React'],
+              galleryImage: '/images/generated/blog-triptych.png'
             },
             {
               title: 'Humanitarian Project',
               url: 'https://github.com/Rich9153/Projet-humanitaire',
               description: 'A web project supporting a humanitarian initiative.',
               kind: 'Impact',
-              technologies: ['Web', 'UX']
+              technologies: ['Web', 'UX'],
+              galleryImage: '/images/generated/humanitarian-triptych.png'
             },
             {
               title: 'Portfolio',
               url: 'https://github.com/Rich9153/Portefolio',
               description: 'This bilingual portfolio built with React and Vite.',
               kind: 'Identity',
-              technologies: ['React', 'Vite']
+              technologies: ['React', 'Vite'],
+              galleryImage: '/images/generated/portfolio-triptych.png'
             }
           ],
           company: [
@@ -490,14 +501,15 @@ export const LanguageProvider = ({ children }) => {
               kind: 'Recruitment',
               label: 'Internship project',
               technologies: ['React', 'Express.js', 'Bootstrap', 'Nodemailer', 'Bcrypt'],
-              images: ['/images/ATS-1.png', '/images/ATS-2.png', '/images/ATS-3.png']
+              galleryImage: '/images/generated/ats-triptych.png'
             },
             {
               title: 'GEM e-Mobility',
               url: 'https://gem-emobility.com/',
               description: 'A platform showcasing the deployment of Burundi’s first electric mobility station.',
               kind: 'Mobility',
-              technologies: ['JavaScript', 'Web']
+              technologies: ['JavaScript', 'Web'],
+              galleryImage: '/images/generated/gem-triptych.png'
             }
           ]
         },
