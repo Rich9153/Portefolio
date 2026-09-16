@@ -6,6 +6,10 @@ export function useScrollAnimation(options = {}) {
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      element.classList.add('scroll-visible');
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -13,9 +17,7 @@ export function useScrollAnimation(options = {}) {
           if (entry.isIntersecting) {
             entry.target.classList.add('scroll-visible');
             entry.target.classList.remove('scroll-hidden');
-          } else {
-            entry.target.classList.remove('scroll-visible');
-            entry.target.classList.add('scroll-hidden');
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -39,6 +41,10 @@ export function useScrollAnimationMultiple(selector, options = {}) {
   useEffect(() => {
     const elements = document.querySelectorAll(selector);
     if (!elements.length) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      elements.forEach((el) => el.classList.add('scroll-visible'));
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -46,9 +52,7 @@ export function useScrollAnimationMultiple(selector, options = {}) {
           if (entry.isIntersecting) {
             entry.target.classList.add('scroll-visible');
             entry.target.classList.remove('scroll-hidden');
-          } else {
-            entry.target.classList.remove('scroll-visible');
-            entry.target.classList.add('scroll-hidden');
+            observer.unobserve(entry.target);
           }
         });
       },

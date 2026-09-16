@@ -115,7 +115,7 @@ button {
 
 button:hover {
   border-color: var(--accent-primary);
-  background-color: rgba(0, 217, 255, 0.1);
+  background-color: rgba(181,43,82,.14);
 }
 
 button:focus,
@@ -192,3 +192,9 @@ button:focus-visible {
 .scroll-delay-3 { transition-delay: 0.3s; }
 .scroll-delay-4 { transition-delay: 0.4s; }
 .scroll-delay-5 { transition-delay: 0.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
+  .scroll-hidden, .scroll-visible { opacity: 1 !important; transform: none !important; }
+}

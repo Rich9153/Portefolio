@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useScrollAnimationMultiple } from '../hooks/useScrollAnimation';
 import './Projects.css';
 
 function ProjectGallery({ project, labels }) {
   const [activeView, setActiveView] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const reduceMotion = useReducedMotion();
   const image = project.galleryImage;
   const viewCount = 4;
 
@@ -15,14 +18,23 @@ function ProjectGallery({ project, labels }) {
 
   return (
     <div className="project-gallery">
-      <div className="project-image-stage">
-        <img
-          src={image}
-          className={activeView === 0 ? 'gallery-overview-image' : 'gallery-panel-image'}
-          style={activeView === 0 ? undefined : { '--panel-offset': `-${(activeView - 1) * 33.333}%` }}
-          alt={`${project.title} - ${labels.image} ${activeView + 1}`}
-          loading="lazy"
-        />
+      <div className={`project-image-stage ${isLoaded ? 'is-loaded' : 'is-loading'}`}>
+        <AnimatePresence initial={false} mode="sync">
+          <motion.img
+            key={activeView}
+            src={image}
+            className={activeView === 0 ? 'gallery-overview-image' : 'gallery-panel-image'}
+            style={activeView === 0 ? undefined : { '--panel-offset': `-${(activeView - 1) * 33.333}%` }}
+            alt={`${project.title} - ${labels.image} ${activeView + 1}`}
+            loading="lazy"
+            decoding="async"
+            onLoad={() => setIsLoaded(true)}
+            initial={reduceMotion ? false : { opacity: 0, scale: 1.025 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={reduceMotion ? undefined : { opacity: 0 }}
+            transition={{ duration: reduceMotion ? 0 : 0.34, ease: [0.22, 1, 0.36, 1] }}
+          />
+        </AnimatePresence>
         <div className="gallery-navigation">
           <button type="button" onClick={showPrevious} aria-label={labels.previousImage}>←</button>
           <span>{activeView + 1} / {viewCount}</span>

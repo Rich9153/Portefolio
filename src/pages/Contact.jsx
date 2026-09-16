@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 // import emailjs from '@emailjs/browser'; // Ancien système commenté
 import { useLanguage } from '../contexts/LanguageContext';
 import { useScrollAnimationMultiple } from '../hooks/useScrollAnimation';
@@ -127,8 +128,17 @@ function Contact() {
   return (
     <div className="contact page-shell">
       {/* Notification */}
+      <AnimatePresence>
       {notification.show && (
-        <div className={`notification ${notification.type}`} role={notification.type === 'error' ? 'alert' : 'status'} aria-live="polite">
+        <motion.div
+          className={`notification ${notification.type}`}
+          role={notification.type === 'error' ? 'alert' : 'status'}
+          aria-live="polite"
+          initial={{ opacity: 0, y: -18, x: '-50%', scale: .98 }}
+          animate={{ opacity: 1, y: 0, x: '-50%', scale: 1 }}
+          exit={{ opacity: 0, y: -12, x: '-50%', scale: .98 }}
+          transition={{ duration: .28, ease: [0.22, 1, 0.36, 1] }}
+        >
           <span className="notification-icon">
             {notification.type === 'success' ? '✓' : '✕'}
           </span>
@@ -140,8 +150,9 @@ function Contact() {
           >
             ×
           </button>
-        </div>
+        </motion.div>
       )}
+      </AnimatePresence>
 
       <div className="contact-container">
         <div className="contact-header scroll-animate">

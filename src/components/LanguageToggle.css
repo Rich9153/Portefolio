@@ -1,10 +1,11 @@
 .language-toggle {
-  background-color: rgba(0, 217, 255, 0.1);
-  border: 2px solid rgba(0, 217, 255, 0.3);
+  position: relative;
+  background-color: rgba(181,43,82,.08);
+  border: 1px solid rgba(181,43,82,.36);
   border-radius: 20px;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -13,22 +14,22 @@
 }
 
 .language-toggle:hover {
-  background-color: rgba(0, 217, 255, 0.2);
-  border-color: #00d9ff;
+  transform: translateY(-1px);
+  background-color: rgba(181,43,82,.16);
+  border-color: var(--accent-primary);
 }
 
 .lang-option {
-  color: #888;
-  transition: color 0.3s ease;
+  color: var(--text-muted);
+  transition: color .25s ease, transform .25s ease;
 }
 
 .lang-option.active {
-  color: #00d9ff;
+  color: #f8dbe3;
+  transform: translateY(-1px);
 }
 
-.separator {
-  color: #666;
-}
+.separator { color: var(--accent-primary); opacity: .7; }
 
 @media screen and (max-width: 768px) {
   .language-toggle {

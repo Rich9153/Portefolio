@@ -17,6 +17,7 @@ function AnimatedRoutes() {
 
   return (
     <>
+      <div className="route-progress" key={location.pathname} aria-hidden="true" />
       <Navbar />
       <main className="main-content">
         <AnimatePresence mode="wait">

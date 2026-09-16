@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 const pageVariants = {
   initial: {
@@ -22,13 +22,15 @@ const pageTransition = {
 };
 
 function PageTransition({ children }) {
+  const reduceMotion = useReducedMotion();
+
   return (
     <motion.div
-      initial="initial"
-      animate="animate"
-      exit="exit"
+      initial={reduceMotion ? false : "initial"}
+      animate={reduceMotion ? { opacity: 1 } : "animate"}
+      exit={reduceMotion ? { opacity: 1 } : "exit"}
       variants={pageVariants}
-      transition={pageTransition}
+      transition={reduceMotion ? { duration: 0 } : pageTransition}
       style={{ width: '100%' }}
     >
       {children}
