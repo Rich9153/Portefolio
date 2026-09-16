@@ -226,6 +226,14 @@ export const LanguageProvider = ({ children }) => {
           ],
           company: [
             {
+              title: 'Intégration CRM/ERP — Odoo',
+              description: 'Projet professionnel actuellement mené chez Croissance Capital, groupe basé à Paris et présent à travers plusieurs filiales en Afrique et au Canada. J’intègre et adapte les processus CRM/ERP dans Odoo afin de centraliser les données, d’harmoniser les flux métiers et de faciliter le suivi des activités entre les différentes entités.',
+              kind: 'Intégration métier',
+              label: 'Projet professionnel en cours',
+              technologies: ['Odoo', 'CRM', 'ERP', 'Intégration'],
+              galleryImage: '/images/generated/odoo-crm-erp-triptych.png'
+            },
+            {
               title: 'ATS - Applicant Tracking System',
               description: 'Application de suivi des candidatures réalisée pendant mon stage chez Solio Group / Asking France. Elle centralise les offres d’emploi, les candidatures, les étapes du recrutement et la planification des entretiens, avec des espaces adaptés aux administrateurs RH, aux responsables et aux candidats.',
               kind: 'Recrutement',
@@ -495,6 +503,14 @@ export const LanguageProvider = ({ children }) => {
             }
           ],
           company: [
+            {
+              title: 'CRM/ERP Integration — Odoo',
+              description: 'An ongoing professional project at Croissance Capital, a Paris-based group with several subsidiaries across Africa and Canada. I integrate and adapt CRM/ERP processes in Odoo to centralise data, harmonise business workflows and improve activity monitoring across the different entities.',
+              kind: 'Business integration',
+              label: 'Current professional project',
+              technologies: ['Odoo', 'CRM', 'ERP', 'Integration'],
+              galleryImage: '/images/generated/odoo-crm-erp-triptych.png'
+            },
             {
               title: 'ATS - Applicant Tracking System',
               description: 'An applicant tracking application built during my internship at Solio Group / Asking France. It centralises job offers, applications, recruitment stages and interview scheduling, with dedicated workflows for HR administrators, managers and candidates.',
