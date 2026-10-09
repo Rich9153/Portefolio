@@ -20,17 +20,16 @@ OUTPUT = ROOT / "output" / "pdf" / "CV-Ulrich-Babbel-Mbonihankuye-Full-Stack-IA.
 PUBLIC_OUTPUT = ROOT / "public" / "CV-Ulrich-Babbel-Mbonihankuye.pdf"
 PHOTO = ROOT / "public" / "images" / "portrait-ulrich.png"
 
-BURGUNDY = HexColor("#2a0d17")
-BURGUNDY_2 = HexColor("#3a1321")
-ACCENT = HexColor("#b52b52")
-ROSE = HexColor("#f0a0b5")
-CYAN = HexColor("#5eead4")
-PAPER = HexColor("#fbf8f9")
-TEXT = HexColor("#2c1b22")
-MUTED = HexColor("#6f5a63")
-WHITE = HexColor("#fff9fb")
-SIDE_TEXT = HexColor("#eadce1")
-LINE = HexColor("#e2d4d9")
+INK = HexColor("#082f28")
+INK_2 = HexColor("#08382f")
+LIME = HexColor("#bdf26f")
+MINT = HexColor("#5eead4")
+PAPER = HexColor("#f7f7f2")
+TEXT = HexColor("#18352f")
+MUTED = HexColor("#5c706b")
+WHITE = HexColor("#ffffff")
+SIDE_TEXT = HexColor("#dcebe6")
+LINE = HexColor("#d7dfdb")
 
 pdfmetrics.registerFont(TTFont("CVRegular", r"C:\Windows\Fonts\arial.ttf"))
 pdfmetrics.registerFont(TTFont("CVBold", r"C:\Windows\Fonts\arialbd.ttf"))
@@ -44,12 +43,12 @@ def style(name, size, leading=None, color=TEXT, font="CVRegular"):
 BODY = style("body", 8.15, 10.6)
 BODY_SMALL = style("body-small", 7.25, 9.2, MUTED)
 BODY_SIDE = style("body-side", 7.35, 9.5, SIDE_TEXT)
-SECTION = style("section", 10.6, 12.5, BURGUNDY, "CVBold")
+SECTION = style("section", 10.6, 12.5, INK, "CVBold")
 ITEM_TITLE = style("item-title", 8.55, 10.3, TEXT, "CVBold")
-ITEM_META = style("item-meta", 6.85, 8.5, ACCENT, "CVBold")
-SIDE_TITLE = style("side-title", 8.2, 10, ROSE, "CVBold")
-SIDE_LABEL = style("side-label", 6.65, 8.2, CYAN, "CVBold")
-SIDE_META = style("side-meta", 6.8, 8.8, HexColor("#bfaab2"))
+ITEM_META = style("item-meta", 6.85, 8.5, MUTED, "CVBold")
+SIDE_TITLE = style("side-title", 8.2, 10, LIME, "CVBold")
+SIDE_LABEL = style("side-label", 6.65, 8.2, MINT, "CVBold")
+SIDE_META = style("side-meta", 6.8, 8.8, HexColor("#93aba3"))
 
 
 def draw_paragraph(pdf, text, x, y_top, width, paragraph_style, max_height=100 * mm):
@@ -60,7 +59,7 @@ def draw_paragraph(pdf, text, x, y_top, width, paragraph_style, max_height=100 *
 
 
 def section_heading(pdf, text, x, y, width):
-    pdf.setFillColor(ACCENT)
+    pdf.setFillColor(LIME)
     pdf.roundRect(x, y - 3.0 * mm, 2.3 * mm, 3.0 * mm, 0.8 * mm, fill=1, stroke=0)
     y = draw_paragraph(pdf, text.upper(), x + 5 * mm, y, width - 5 * mm, SECTION)
     pdf.setStrokeColor(LINE)
@@ -101,7 +100,7 @@ def draw_photo(pdf, cx, cy, radius):
     pdf.drawImage(image, cx - draw_width / 2, cy - draw_height / 2, draw_width, draw_height,
                   preserveAspectRatio=True, mask="auto")
     pdf.restoreState()
-    pdf.setStrokeColor(ROSE)
+    pdf.setStrokeColor(LIME)
     pdf.setLineWidth(2.2)
     pdf.circle(cx, cy, radius, fill=0, stroke=1)
 
@@ -122,25 +121,25 @@ def build_cv():
 
     pdf.setFillColor(PAPER)
     pdf.rect(0, 0, width, height, fill=1, stroke=0)
-    pdf.setFillColor(BURGUNDY)
+    pdf.setFillColor(INK)
     pdf.rect(0, height - 61 * mm, width, 61 * mm, fill=1, stroke=0)
-    pdf.setFillColor(BURGUNDY_2)
+    pdf.setFillColor(INK_2)
     pdf.rect(140 * mm, 0, width - 140 * mm, height, fill=1, stroke=0)
 
-    pdf.setFillColor(ACCENT)
+    pdf.setFillColor(LIME)
     pdf.roundRect(main_x, height - 16.5 * mm, 53 * mm, 6.2 * mm, 3.1 * mm, fill=1, stroke=0)
-    pdf.setFillColor(WHITE)
+    pdf.setFillColor(INK)
     pdf.setFont("CVBold", 6.8)
     pdf.drawCentredString(main_x + 26.5 * mm, height - 14.4 * mm, "ALTERNANCE - SEPTEMBRE 2026")
     pdf.setFillColor(WHITE)
     pdf.setFont("CVBold", 24)
     pdf.drawString(main_x, height - 29.5 * mm, "ULRICH BABBEL")
-    pdf.setFillColor(ROSE)
+    pdf.setFillColor(LIME)
     pdf.drawString(main_x, height - 40.5 * mm, "MBONIHANKUYE")
     pdf.setFillColor(WHITE)
     pdf.setFont("CVBold", 10.5)
     pdf.drawString(main_x, height - 49.2 * mm, "DÉVELOPPEUR FULL STACK & IA")
-    pdf.setFillColor(HexColor("#d7c4cb"))
+    pdf.setFillColor(HexColor("#dcebe6"))
     pdf.setFont("CVRegular", 7.7)
     pdf.drawString(main_x, height - 55.3 * mm, "Applications web, API REST, données et automatisation")
     draw_photo(pdf, 174 * mm, height - 30.5 * mm, 18.7 * mm)
@@ -197,11 +196,11 @@ def build_cv():
     side_y = draw_paragraph(pdf, "CONTACT", side_x, side_y, side_w, SIDE_TITLE) - 2.2 * mm
     contact_lines = [
         "Toulouse, France",
-        "<link href='mailto:ulrichbab09@gmail.com' color='#eadce1'>ulrichbab09@gmail.com</link>",
+        "<link href='mailto:ulrichbab09@gmail.com' color='#dcebe6'>ulrichbab09@gmail.com</link>",
         "+33 6 35 67 02 68",
-        "<link href='https://github.com/Rich9153' color='#eadce1'>github.com/Rich9153</link>",
-        "<link href='https://www.linkedin.com/in/ulrich-babbel-mbonihankuye-798a752b1/' color='#eadce1'>LinkedIn / Ulrich Babbel</link>",
-        "<link href='https://portefolio-five-teal.vercel.app/' color='#eadce1'>Portfolio en ligne</link>",
+        "<link href='https://github.com/Rich9153' color='#dcebe6'>github.com/Rich9153</link>",
+        "<link href='https://www.linkedin.com/in/ulrich-babbel-mbonihankuye-798a752b1/' color='#dcebe6'>LinkedIn / Ulrich Babbel</link>",
+        "<link href='https://portefolio-five-teal.vercel.app/' color='#dcebe6'>Portfolio en ligne</link>",
     ]
     for line in contact_lines:
         side_y = draw_paragraph(pdf, line, side_x, side_y, side_w, BODY_SIDE) - 1.25 * mm
@@ -230,9 +229,9 @@ def build_cv():
     side_y = draw_paragraph(pdf, "Baccalauréat scientifique", side_x, side_y, side_w, BODY_SIDE) - 0.7 * mm
     draw_paragraph(pdf, "2018 - 2019 | Lycée du Lac Tanganyika", side_x, side_y, side_w, SIDE_META)
 
-    pdf.setFillColor(ACCENT)
+    pdf.setFillColor(MINT)
     pdf.rect(side_x, 13 * mm, side_w, 1.1 * mm, fill=1, stroke=0)
-    pdf.setFillColor(HexColor("#baa4ad"))
+    pdf.setFillColor(HexColor("#b8cec7"))
     pdf.setFont("CVRegular", 6.3)
     pdf.drawString(side_x, 8.8 * mm, "CV ciblé Full Stack & IA - octobre 2026")
     pdf.setTitle("CV - Ulrich Babbel Mbonihankuye - Full Stack et IA")
